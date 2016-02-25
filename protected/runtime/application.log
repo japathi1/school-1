@@ -735,3 +735,141 @@ Stack trace:
 REQUEST_URI=/school/admin/logout
 HTTP_REFERER=http://localhost/school/index.php/admin/schoolCharges/manage
 ---
+2016/02/25 20:21:31 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\school\themes\admin\views\layouts\main.php:70)
+Stack trace:
+#0 C:\xampp\htdocs\school\framework\web\widgets\CContentDecorator.php(76): DefaultController->renderFile()
+#1 C:\xampp\htdocs\school\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#2 C:\xampp\htdocs\school\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 C:\xampp\htdocs\school\framework\web\CBaseController.php(214): CContentDecorator->run()
+#4 C:\xampp\htdocs\school\framework\web\CBaseController.php(308): DefaultController->endWidget()
+#5 C:\xampp\htdocs\school\themes\admin\views\layouts\column1.php(4): DefaultController->endContent()
+#6 C:\xampp\htdocs\school\framework\web\CBaseController.php(126): require()
+#7 C:\xampp\htdocs\school\framework\web\CBaseController.php(95): DefaultController->renderInternal()
+#8 C:\xampp\htdocs\school\framework\web\CController.php(784): DefaultController->renderFile()
+#9 C:\xampp\htdocs\school\protected\modules\admin\controllers\DefaultController.php(7): DefaultController->render()
+#10 C:\xampp\htdocs\school\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#11 C:\xampp\htdocs\school\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 C:\xampp\htdocs\school\framework\web\CController.php(286): DefaultController->runAction()
+#13 C:\xampp\htdocs\school\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#14 C:\xampp\htdocs\school\framework\web\CWebApplication.php(282): DefaultController->run()
+#15 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\school\index.php(13): CWebApplication->run()
+REQUEST_URI=/school/admin
+in C:\xampp\htdocs\school\themes\admin\views\layouts\main.php (70)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\column1.php (4)
+in C:\xampp\htdocs\school\protected\modules\admin\controllers\DefaultController.php (7)
+2016/02/25 21:37:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "school/school/login".' in C:\xampp\htdocs\school\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController('school/school/l...')
+#1 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\school\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/school/index.php/school/school/login
+---
+2016/02/25 21:37:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "school/school/login".' in C:\xampp\htdocs\school\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController('school/school/l...')
+#1 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\school\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/school/index.php/school/school/login
+---
+2016/02/25 21:38:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in C:\xampp\htdocs\school\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\school\framework\web\CController.php(270): CController->missingAction('login')
+#1 C:\xampp\htdocs\school\framework\web\CWebApplication.php(282): CController->run('login')
+#2 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController('school/default/...')
+#3 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\school\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/school/index.php/school/default/login
+---
+2016/02/25 21:38:59 [error] [php] include(CDbCritieria.php): failed to open stream: No such file or directory (C:\xampp\htdocs\school\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\xampp\htdocs\school\protected\modules\school\components\UserIdentity.php(27): spl_autoload_call()
+#1 C:\xampp\htdocs\school\protected\modules\school\models\UserLogin.php(50): UserIdentity->authenticate()
+#2 C:\xampp\htdocs\school\framework\validators\CInlineValidator.php(42): UserLogin->authenticate()
+#3 C:\xampp\htdocs\school\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute()
+#4 C:\xampp\htdocs\school\framework\base\CModel.php(159): CInlineValidator->validate()
+#5 C:\xampp\htdocs\school\protected\modules\school\controllers\LoginController.php(16): UserLogin->validate()
+#6 C:\xampp\htdocs\school\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#7 C:\xampp\htdocs\school\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\school\framework\web\CController.php(286): LoginController->runAction()
+#9 C:\xampp\htdocs\school\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#10 C:\xampp\htdocs\school\framework\web\CWebApplication.php(282): LoginController->run()
+#11 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\school\index.php(13): CWebApplication->run()
+REQUEST_URI=/school/index.php/school/login
+in C:\xampp\htdocs\school\protected\modules\school\components\UserIdentity.php (27)
+in C:\xampp\htdocs\school\protected\modules\school\models\UserLogin.php (50)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\LoginController.php (16)
+2016/02/25 21:43:53 [error] [php] Creating default object from empty value (C:\xampp\htdocs\school\protected\modules\school\components\UserIdentity.php:28)
+Stack trace:
+#0 C:\xampp\htdocs\school\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute()
+#1 C:\xampp\htdocs\school\framework\base\CModel.php(159): CInlineValidator->validate()
+#2 C:\xampp\htdocs\school\protected\modules\school\controllers\LoginController.php(16): UserLogin->validate()
+#3 C:\xampp\htdocs\school\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#4 C:\xampp\htdocs\school\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\school\framework\web\CController.php(286): LoginController->runAction()
+#6 C:\xampp\htdocs\school\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#7 C:\xampp\htdocs\school\framework\web\CWebApplication.php(282): LoginController->run()
+#8 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\school\index.php(13): CWebApplication->run()
+REQUEST_URI=/school/index.php/school/login
+in C:\xampp\htdocs\school\protected\modules\school\components\UserIdentity.php (28)
+in C:\xampp\htdocs\school\protected\modules\school\models\UserLogin.php (50)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\LoginController.php (16)
+2016/02/25 21:51:28 [error] [php] Creating default object from empty value (C:\xampp\htdocs\school\protected\modules\school\components\UserIdentity.php:28)
+Stack trace:
+#0 C:\xampp\htdocs\school\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute()
+#1 C:\xampp\htdocs\school\framework\base\CModel.php(159): CInlineValidator->validate()
+#2 C:\xampp\htdocs\school\protected\modules\school\controllers\LoginController.php(16): UserLogin->validate()
+#3 C:\xampp\htdocs\school\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#4 C:\xampp\htdocs\school\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\school\framework\web\CController.php(286): LoginController->runAction()
+#6 C:\xampp\htdocs\school\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#7 C:\xampp\htdocs\school\framework\web\CWebApplication.php(282): LoginController->run()
+#8 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\school\index.php(13): CWebApplication->run()
+REQUEST_URI=/school/school/login
+in C:\xampp\htdocs\school\protected\modules\school\components\UserIdentity.php (28)
+in C:\xampp\htdocs\school\protected\modules\school\models\UserLogin.php (50)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\LoginController.php (16)
+2016/02/25 21:52:12 [error] [php] Creating default object from empty value (C:\xampp\htdocs\school\protected\modules\school\components\UserIdentity.php:28)
+Stack trace:
+#0 C:\xampp\htdocs\school\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute()
+#1 C:\xampp\htdocs\school\framework\base\CModel.php(159): CInlineValidator->validate()
+#2 C:\xampp\htdocs\school\protected\modules\school\controllers\LoginController.php(16): UserLogin->validate()
+#3 C:\xampp\htdocs\school\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#4 C:\xampp\htdocs\school\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\school\framework\web\CController.php(286): LoginController->runAction()
+#6 C:\xampp\htdocs\school\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#7 C:\xampp\htdocs\school\framework\web\CWebApplication.php(282): LoginController->run()
+#8 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\school\index.php(13): CWebApplication->run()
+REQUEST_URI=/school/school/login
+in C:\xampp\htdocs\school\protected\modules\school\components\UserIdentity.php (28)
+in C:\xampp\htdocs\school\protected\modules\school\models\UserLogin.php (50)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\LoginController.php (16)
+2016/02/25 21:53:08 [error] [php] Creating default object from empty value (C:\xampp\htdocs\school\protected\modules\school\components\UserIdentity.php:28)
+Stack trace:
+#0 C:\xampp\htdocs\school\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute()
+#1 C:\xampp\htdocs\school\framework\base\CModel.php(159): CInlineValidator->validate()
+#2 C:\xampp\htdocs\school\protected\modules\school\controllers\LoginController.php(16): UserLogin->validate()
+#3 C:\xampp\htdocs\school\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#4 C:\xampp\htdocs\school\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\school\framework\web\CController.php(286): LoginController->runAction()
+#6 C:\xampp\htdocs\school\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#7 C:\xampp\htdocs\school\framework\web\CWebApplication.php(282): LoginController->run()
+#8 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\school\index.php(13): CWebApplication->run()
+REQUEST_URI=/school/school/login
+in C:\xampp\htdocs\school\protected\modules\school\components\UserIdentity.php (28)
+in C:\xampp\htdocs\school\protected\modules\school\models\UserLogin.php (50)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\LoginController.php (16)
