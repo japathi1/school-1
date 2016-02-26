@@ -24,13 +24,13 @@ class UserIdentity extends CUserIdentity {
      * @return boolean whether authentication succeeds.
      */
     public function authenticate() {
-        $criteria = new CDbCriteria;
-        $critieria->condition='school_id NOT NULL';
+        
         if (strpos($this->username, "@")) {
-            $user = Users::model()->findByAttributes(array('email' => $this->username),$criteria);
+            $user = Users::model()->find(array("condition" => "email = '".$this->username."' AND school_id IS NOT NULL"));
         } else {
-            $user = Users::model()->findByAttributes(array('username' => $this->username),$criteria);
+            $user = Users::model()->find(array("condition" => "username = '".$this->username."' AND school_id IS NOT NULL"));
         }
+        // pre($user,true);
         if ($user === null)
             if (strpos($this->username, "@")) {
                 $this->errorCode = self::ERROR_EMAIL_INVALID;
@@ -44,7 +44,7 @@ class UserIdentity extends CUserIdentity {
             $this->_id = $user->id;
             $this->username = $user->username;
             $this->errorCode = self::ERROR_NONE;
-            $role = $user->role_id;
+            $role = $user->role;
             $role_model = Roles::model()->findByPk($role);
             $school = Schools::model()->findByPk($user->school_id);
             $user_school = array("school" => $school->id,"school_name" => $school->name);
