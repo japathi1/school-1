@@ -13,7 +13,7 @@
  * @property string $created_by
  * @property string $modified_by
  */
-class States extends BaseModel
+class States extends AdminBaseModel
 {
 	/**
 	 * @return string the associated database table name

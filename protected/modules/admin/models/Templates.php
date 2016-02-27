@@ -16,7 +16,7 @@
  * @property string $created_by
  * @property string $modified_by
  */
-class Templates extends BaseModel
+class Templates extends AdminBaseModel
 {
 	/**
 	 * @return string the associated database table name

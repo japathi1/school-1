@@ -20,7 +20,7 @@
  * @property string $created_by
  * @property string $modified_by
  */
-class Users extends BaseModel
+class Users extends AdminBaseModel
 {
 	public $verifyPassword;
 	/**

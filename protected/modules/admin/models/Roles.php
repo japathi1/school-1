@@ -13,7 +13,7 @@
  * @property string $created_by
  * @property string $modified_by
  */
-class Roles extends BaseModel
+class Roles extends AdminBaseModel
 {
 	/**
 	 * @return string the associated database table name
