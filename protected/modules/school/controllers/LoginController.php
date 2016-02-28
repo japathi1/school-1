@@ -13,7 +13,7 @@ class LoginController extends Controller {
             $model = new UserLogin;
             if (isset($_POST['UserLogin'])) {
                 $model->attributes = $_POST['UserLogin'];
-                pre($model->attributes);
+                //pre($model->attributes);
                 if ($model->validate()) {
                     $this->redirect(array("/school/dashboard"));
                 }
