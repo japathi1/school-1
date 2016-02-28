@@ -25,7 +25,7 @@
  * @property string $created_by
  * @property string $modified_by
  */
-class Parents extends BaseModel
+class Parents extends AdminBaseModel
 {
 	/**
 	 * @return string the associated database table name

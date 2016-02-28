@@ -19,7 +19,7 @@
  * @property string $created_by
  * @property string $modified_by
  */
-class Schools extends BaseModel
+class Schools extends AdminBaseModel
 {
 	/**
 	 * @return string the associated database table name

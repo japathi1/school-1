@@ -115,7 +115,7 @@ class Students extends BaseModel
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('school',$this->school,true);
+		$criteria->compare('school',Yii::app()->user->getState('school_id'));
 		$criteria->compare('roll_number',$this->roll_number);
 		$criteria->compare('firstname',$this->firstname,true);
 		$criteria->compare('middlename',$this->middlename,true);

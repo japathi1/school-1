@@ -93,7 +93,7 @@ class Classes extends BaseModel
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('class',$this->class,true);
-		$criteria->compare('school',$this->school,true);
+		$criteria->compare('school',Yii::app()->user->getState('school_id'));
 		$criteria->compare('section',$this->section,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('deleted',$this->deleted);

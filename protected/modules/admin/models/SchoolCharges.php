@@ -15,7 +15,7 @@
  * @property string $created_by
  * @property string $modified_by
  */
-class SchoolCharges extends BaseModel
+class SchoolCharges extends AdminBaseModel
 {
 	/**
 	 * @return string the associated database table name
