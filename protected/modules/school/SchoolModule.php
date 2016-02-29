@@ -12,6 +12,11 @@ class SchoolModule extends CWebModule
 			'school.models.*',
 			'school.components.*',
 		));
+
+		Yii::app()->setComponents(array(
+            'errorHandler'=>array(
+            'errorAction'=>'school/users/error',
+        )));
 	}
 
 	public function beforeControllerAction($controller, $action)

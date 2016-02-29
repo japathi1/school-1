@@ -61,7 +61,6 @@ class ClassesController extends Controller
 	{
 		$model=new Classes;
 		$school = Yii::app()->user->getState('school_id');
-		$sections = CHtml::listData(BaseModel::getAll('Sections',array("condition" => "school = '$school'")), 'id', 'section');
 		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -76,7 +75,6 @@ class ClassesController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
-			'sections'=>$sections
 		));
 	}
 
@@ -88,8 +86,6 @@ class ClassesController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-		$school = Yii::app()->user->getState('school_id');
-		$sections = CHtml::listData(BaseModel::getAll('Sections',array("condition" => "school = '$school'")), 'id', 'section');
 		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -103,7 +99,6 @@ class ClassesController extends Controller
 
 		$this->render('update',array(
 			'model'=>$model,
-			'sections'=>$sections
 		));
 	}
 
@@ -136,15 +131,12 @@ class ClassesController extends Controller
 	{
 		$model=new Classes('search');
 		$model->unsetAttributes();  // clear any default values
-		$school = Yii::app()->user->getState('school_id');
-		$sections = CHtml::listData(BaseModel::getAll('Sections',array("condition" => "school = '$school'")), 'id', 'section');
 		
 		if(isset($_GET['Classes']))
 			$model->attributes=$_GET['Classes'];
 
 		$this->render('admin',array(
 			'model'=>$model,
-			'sections'=>$sections
 		));
 	}
 

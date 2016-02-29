@@ -28,7 +28,7 @@ class StudentsController extends Controller
 	{
 		return array(
 			array('allow',
-                'actions' => array('index', 'create', 'update', 'view', 'manage', 'delete'),
+                'actions' => array('index', 'create', 'update', 'view', 'manage', 'delete','sections'),
                 'users' => array('@'),
                 'expression' => '(isset($user->role) && ($user->role === "Principal"))||(isset($user->role) && ($user->role === "Account Manager"))'
             ),
@@ -155,6 +155,20 @@ class StudentsController extends Controller
 			'sections'=>$sections,
 			'classes'=>$classes,
 		));
+	}
+
+	public function actionSections()
+	{
+		$class = $_POST['class'];
+		$sections = Sections::model()->findAll(array("condition" => "class = '$class'",'order' => 'section ASC'));
+		$html = "<option>Select Section</option>";
+		if($sections !== null){
+			foreach($sections as $section){
+				$html .= "<option value='".$section->id."''>".$section->section."</option>";
+			}
+		}
+
+		echo $html;
 	}
 
 	/**

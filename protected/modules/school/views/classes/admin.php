@@ -28,7 +28,6 @@
 						");
                 $this->renderPartial('_search', array(
                     'model' => $model,
-                    'sections' => $sections
                 ));
                 ?>
             </div>
@@ -59,10 +58,6 @@
                                     // 'filter'=>$model,
                                     'columns' => array(
                                         'class',
-                                        array(
-                                            'name' => 'section',
-                                            'value' => array($this, 'classSection')
-                                        ),
                                         array(
                                             'class' => 'CButtonColumn',
                                         ),
