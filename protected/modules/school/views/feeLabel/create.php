@@ -1,18 +1,23 @@
-<?php
-/* @var $this FeeLabelController */
-/* @var $model FeeLabel */
-
-$this->breadcrumbs=array(
-	'Fee Labels'=>array('index'),
-	'Create',
-);
-
-$this->menu=array(
-	array('label'=>'List FeeLabel', 'url'=>array('index')),
-	array('label'=>'Manage FeeLabel', 'url'=>array('admin')),
-);
-?>
-
-<h1>Create FeeLabel</h1>
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+ <section class="content-header">
+  <h1>
+    Add
+    <small>Student</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="<?php echo base_url().'/school'; ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><a href="<?php echo base_url().'/school/students'; ?>"><i class="fa fa-dashboard"></i> Fee< Label</a></li>
+    <li class="active">Add</li>
+  </ol>
+</section>
+<section class="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="box box-info">
+				<div class="box-header with-border">
+					<h3 class="box-title">Fee Label</h3>
+				</div>
+				<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+			</div>
+		</div>
+	</div>
+</section>

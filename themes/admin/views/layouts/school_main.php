@@ -121,6 +121,9 @@
             <li>
               <a href="<?php echo base_url()."/school/transactions"; ?>"><i class="fa fa-university"></i> <span>Transactions</span></a>
             </li>
+            <li>
+              <a href="<?php echo base_url()."/school/feelabel"; ?>"><i class="fa fa-university"></i> <span>Fee Label</span></a>
+            </li>
           </ul>
         </section>
         <!-- /.sidebar -->
