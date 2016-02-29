@@ -87,11 +87,12 @@ class FeeLabel extends BaseModel
 	public function search()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
+            $school_id = Yii::app()->user->getState('school_id');
 
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('school_id',$this->school_id,true);
+		$criteria->compare('school_id',$school_id,true);
 		$criteria->compare('fee_label',$this->fee_label,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('deleted',$this->deleted);
