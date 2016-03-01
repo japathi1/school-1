@@ -12915,3 +12915,465 @@ in C:\xampp\htdocs\school\protected\modules\school\controllers\DashboardControll
 in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
 in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
 in C:\xampp\htdocs\school\protected\modules\school\controllers\DashboardController.php (17)
+2016/03/01 03:27:35 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (129)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:27:35 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_label`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (129)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:27:35 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_label`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (129)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:27:35 [trace] [system.db.ar.CActiveRecord] FeeLabel.count()
+in C:\xampp\htdocs\school\protected\modules\school\views\feeLabel\admin.php (65)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:27:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `fee_label` `t` WHERE school_id LIKE :ycp0
+in C:\xampp\htdocs\school\protected\modules\school\views\feeLabel\admin.php (65)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:27:35 [trace] [system.db.ar.CActiveRecord] FeeLabel.findAll()
+in C:\xampp\htdocs\school\protected\modules\school\views\feeLabel\admin.php (65)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:27:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `fee_label` `t` WHERE school_id LIKE :ycp0 LIMIT 10
+in C:\xampp\htdocs\school\protected\modules\school\views\feeLabel\admin.php (65)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:27:35 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+2016/03/01 03:27:35 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+2016/03/01 03:27:35 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+2016/03/01 03:27:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='fb90b76a-ce8f-11e5-9093-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+2016/03/01 03:31:20 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (129)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:31:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_label`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (129)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:31:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_label`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (129)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:31:20 [trace] [system.db.ar.CActiveRecord] FeeLabel.count()
+in C:\xampp\htdocs\school\protected\modules\school\views\feeLabel\admin.php (65)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:31:20 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `fee_label` `t` WHERE school_id LIKE :ycp0
+in C:\xampp\htdocs\school\protected\modules\school\views\feeLabel\admin.php (65)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:31:20 [trace] [system.db.ar.CActiveRecord] FeeLabel.findAll()
+in C:\xampp\htdocs\school\protected\modules\school\views\feeLabel\admin.php (65)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:31:20 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `fee_label` `t` WHERE school_id LIKE :ycp0 LIMIT 10
+in C:\xampp\htdocs\school\protected\modules\school\views\feeLabel\admin.php (65)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:31:20 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+2016/03/01 03:31:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+2016/03/01 03:31:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+2016/03/01 03:31:20 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='fb90b76a-ce8f-11e5-9093-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeelabelController.php (136)
+2016/03/01 03:31:35 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:31:35 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:31:35 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:31:35 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\school\themes\admin\views\layouts\main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (79)
+2016/03/01 03:31:35 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (79)
+2016/03/01 03:31:35 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (79)
+2016/03/01 03:31:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id` IS NULL LIMIT 1
+in C:\xampp\htdocs\school\themes\admin\views\layouts\main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (79)
+2016/03/01 03:47:46 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:47:46 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:47:46 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:47:46 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (82)
+2016/03/01 03:47:46 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (82)
+2016/03/01 03:47:46 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (82)
+2016/03/01 03:47:46 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='fb90b76a-ce8f-11e5-9093-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (82)
+2016/03/01 03:52:59 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (144)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:52:59 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `students`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (144)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:52:59 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `students`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (144)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:52:59 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `sections`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (146)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:52:59 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `sections`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (146)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:52:59 [trace] [system.db.ar.CActiveRecord] Sections.findAll()
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (146)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:52:59 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `sections` `t` WHERE school = 'baff96fe-c797-11e5-b399-3c07717072c4' AND status =  1 AND deleted = 0
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (146)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:52:59 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `classes`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (147)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:52:59 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `classes`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (147)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:52:59 [trace] [system.db.ar.CActiveRecord] Classes.findAll()
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (147)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `classes` `t` WHERE school = 'baff96fe-c797-11e5-b399-3c07717072c4' AND status =  1 AND deleted = 0
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (147)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:00 [trace] [system.db.ar.CActiveRecord] Students.count()
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `students` `t` WHERE school=:ycp0
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:00 [trace] [system.db.ar.CActiveRecord] Students.findAll()
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `students` `t` WHERE school=:ycp0 LIMIT 10
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:00 [trace] [system.db.ar.CActiveRecord] Classes.findByPk()
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (204)
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `classes` `t` WHERE `t`.`id`='74fdd30e-c798-11e5-b399-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (204)
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.ar.CActiveRecord] Sections.findByPk()
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (209)
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `sections` `t` WHERE `t`.`id`='f0d55bf3-d0fb-11e5-be3f-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (209)
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.ar.CActiveRecord] Classes.findByPk()
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (204)
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `classes` `t` WHERE `t`.`id`='74fdd30e-c798-11e5-b399-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (204)
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.ar.CActiveRecord] Sections.findByPk()
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (209)
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `sections` `t` WHERE `t`.`id`='f0d55bf3-d0fb-11e5-be3f-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (209)
+in C:\xampp\htdocs\school\protected\modules\school\views\students\admin.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='fb90b76a-ce8f-11e5-9093-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (157)
+2016/03/01 03:53:02 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (62)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `students`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (62)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `students`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (62)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `sections`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (64)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `sections`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (64)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.ar.CActiveRecord] Sections.findAll()
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (64)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `sections` `t` WHERE school = 'baff96fe-c797-11e5-b399-3c07717072c4' AND status =  1 AND deleted = 0
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (64)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `classes`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `classes`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.ar.CActiveRecord] Classes.findAll()
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `classes` `t` WHERE school = 'baff96fe-c797-11e5-b399-3c07717072c4' AND status =  1 AND deleted = 0
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `states`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (66)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `states`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (66)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.ar.CActiveRecord] States.findAll()
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (89)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (66)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `states` `t` WHERE status =  1 AND deleted = 0
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (89)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (66)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 03:53:02 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (84)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (84)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (84)
+2016/03/01 03:53:02 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='fb90b76a-ce8f-11e5-9093-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (84)
+2016/03/01 04:02:56 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (62)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `students`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (62)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `students`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (62)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `sections`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (64)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `sections`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (64)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.ar.CActiveRecord] Sections.findAll()
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (64)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `sections` `t` WHERE school = 'baff96fe-c797-11e5-b399-3c07717072c4' AND status =  1 AND deleted = 0
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (64)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `classes`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `classes`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.ar.CActiveRecord] Classes.findAll()
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `classes` `t` WHERE school = 'baff96fe-c797-11e5-b399-3c07717072c4' AND status =  1 AND deleted = 0
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (87)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (65)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `states`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (66)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `states`
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (79)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (66)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.ar.CActiveRecord] States.findAll()
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (89)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (66)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `states` `t` WHERE status =  1 AND deleted = 0
+in C:\xampp\htdocs\school\protected\models\BaseModel.php (89)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (66)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:02:56 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (84)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (84)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (84)
+2016/03/01 04:02:56 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='fb90b76a-ce8f-11e5-9093-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\StudentsController.php (84)
+2016/03/01 04:03:10 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:20 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:22 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:22 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:22 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:23 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:23 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:03:23 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:05:53 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:05:53 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:05:53 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:05:57 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:05:57 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:05:57 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:06:34 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:06:34 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:06:34 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `fee_structure`
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (69)
+in C:\xampp\htdocs\school\index.php (13)
+2016/03/01 04:06:34 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (82)
+2016/03/01 04:06:34 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (82)
+2016/03/01 04:06:34 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (82)
+2016/03/01 04:06:34 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='fb90b76a-ce8f-11e5-9093-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_main.php (67)
+in C:\xampp\htdocs\school\themes\admin\views\layouts\school_column2.php (4)
+in C:\xampp\htdocs\school\protected\modules\school\controllers\FeestructureController.php (82)
