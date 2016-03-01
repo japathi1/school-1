@@ -29,12 +29,7 @@
                             'data' => $model,
                             'attributes' => array(
                                 'class',
-                                array(
-							            'label'=>'Section',
-							            'type'=>'raw',
-							            'value'=>Sections::model()->findByPk($model->section)->section,
-							        ),
-							),
+                            ),
                         ));
                         ?>
                         <div class="col-xs-12">

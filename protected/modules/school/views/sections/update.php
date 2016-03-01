@@ -1,21 +1,23 @@
-<?php
-/* @var $this SectionsController */
-/* @var $model Sections */
-
-$this->breadcrumbs=array(
-	'Sections'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
-);
-
-$this->menu=array(
-	array('label'=>'List Sections', 'url'=>array('index')),
-	array('label'=>'Create Sections', 'url'=>array('create')),
-	array('label'=>'View Sections', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Sections', 'url'=>array('admin')),
-);
-?>
-
-<h1>Update Sections <?php echo $model->id; ?></h1>
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<section class="content-header">
+  <h1>
+    Update
+    <small>Section</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="<?php echo base_url().'/school'; ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><a href="<?php echo base_url().'/school/sections'; ?>"><i class="fa fa-dashboard"></i> Sections</a></li>
+    <li class="active">Update</li>
+  </ol>
+</section>
+<section class="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="box box-info">
+				<div class="box-header with-border">
+					<h3 class="box-title"><?php echo $model->section; ?></h3>
+				</div>
+				<?php $this->renderPartial('_form', array('model'=>$model,'classes' => $classes)); ?>
+			</div>
+		</div>
+	</div>
+</section>

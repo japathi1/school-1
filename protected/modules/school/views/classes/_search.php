@@ -10,8 +10,7 @@
 			<?php echo $form->textField($model,'class',array('size'=>60,'maxlength'=>255,'class' => 'form-control')); ?>
 		</div>
 		<div class="col-xs-3">
-			<?php echo $form->label($model,'section'); ?>
-			<?php echo $form->dropDownList($model,'section',$sections,array('empty' => 'Select Section','class' => 'form-control')); ?>
+			
 		</div>
 		<div class="col-xs-3"></div>
 		<div class="col-xs-3"></div>

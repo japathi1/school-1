@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'sections':
  * @property string $id
  * @property string $section
+ * @property string $class
  * @property string $school
  * @property integer $status
  * @property integer $deleted
@@ -32,7 +33,7 @@ class Sections extends BaseModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, section, school, date_entered, date_modified, created_by, modified_by', 'required'),
+			array('id, section, class,school, date_entered, date_modified, created_by, modified_by', 'required'),
 			array('status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, school, created_by, modified_by', 'length', 'max'=>36),
 			array('section', 'length', 'max'=>16),
@@ -61,6 +62,7 @@ class Sections extends BaseModel
 		return array(
 			'id' => 'ID',
 			'section' => 'Section',
+			'class' => 'Class',
 			'school' => 'School',
 			'status' => 'Status',
 			'deleted' => 'Deleted',
@@ -91,6 +93,7 @@ class Sections extends BaseModel
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('section',$this->section,true);
+		$criteria->compare('class',$this->class,true);
 		$criteria->compare('school',$this->school,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('deleted',$this->deleted);

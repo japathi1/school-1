@@ -32,12 +32,20 @@
 		</div>
 		<div class="col-xs-4">
 			<?php echo $form->labelEx($model,'class'); ?>
-			<?php echo $form->dropDownList($model,'class',$classes,array('empty' => 'Select Classes','class' => 'form-control')); ?>
+			<?php echo $form->dropDownList($model,'class',$classes,
+											array('empty' => 'Select Classes',
+													'class' => 'form-control',
+													'ajax' => array(
+											                'type' => 'POST',
+											                'url' => CController::createUrl('sections'),
+											                'update' => '#Students_section',
+											                'data' => array('class' => 'js:this.value'),
+											        ))); ?>
 			<?php echo $form->error($model,'class'); ?>
 		</div>
 		<div class="col-xs-4">
 			<?php echo $form->labelEx($model,'section'); ?>
-			<?php echo $form->dropDownList($model,'section',$sections,array('empty' => 'Select Section','class' => 'form-control')); ?>
+			<?php echo $form->dropDownList($model,'section',[],array('empty' => 'Select Section','class' => 'form-control')); ?>
 			<?php echo $form->error($model,'section'); ?>
 		</div>
 	</div>

@@ -14,9 +14,7 @@
 			<?php echo $form->error($model,'class'); ?>
 		</div>
 		<div class="col-xs-6">
-			<?php echo $form->labelEx($model,'section'); ?>
-			<?php echo $form->dropDownList($model,'section', $sections,array('empty' => 'Select Section','class' => 'form-control')); ?>
-			<?php echo $form->error($model,'section'); ?>
+			
 		</div>
 	</div>
 </div>

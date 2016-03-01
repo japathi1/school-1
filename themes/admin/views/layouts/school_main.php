@@ -109,20 +109,19 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li><a href="<?php echo base_url()."/schools/users"; ?>"><i class="fa fa-users"></i> <span>Users</span></a></li>
-            <li><a href="<?php echo base_url()."/schools/students"; ?>"><i class="fa fa-university"></i> <span>Schools</span></a></li>
-            <li><a href="<?php echo base_url()."/schools/fees"; ?>"><i class="fa fa-university"></i> <span>Fee Charges</span></a></li>
-            <li>
-              <a href="<?php echo base_url()."/school/students"; ?>"><i class="fa fa-university"></i> <span>Students</span></a>
-            </li>
+            <li><a href="<?php echo base_url()."/school/users"; ?>"><i class="fa fa-users"></i> <span>Users</span></a></li>
+            <li><a href="<?php echo base_url()."/school/classes"; ?>"><i class="fa fa-university"></i> <span>Classes</span></a></li>
+            <li><a href="<?php echo base_url()."/school/sections"; ?>"><i class="fa fa-university"></i> <span>Sections</span></a></li>
+            <li><a href="<?php echo base_url()."/school/students"; ?>"><i class="fa fa-university"></i> <span>Students</span></a></li>
             <li>
               <a href="<?php echo base_url()."/school/parents"; ?>"><i class="fa fa-university"></i> <span>Parents</span></a>
             </li>
             <li>
-              <a href="<?php echo base_url()."/school/transactions"; ?>"><i class="fa fa-university"></i> <span>Transactions</span></a>
-            </li>
-            <li>
               <a href="<?php echo base_url()."/school/feelabel"; ?>"><i class="fa fa-university"></i> <span>Fee Label</span></a>
+            </li>
+            <li><a href="<?php echo base_url()."/school/fees"; ?>"><i class="fa fa-university"></i> <span>Fee Charges</span></a></li>
+            <li>
+              <a href="<?php echo base_url()."/school/transactions"; ?>"><i class="fa fa-university"></i> <span>Transactions</span></a>
             </li>
           </ul>
         </section>

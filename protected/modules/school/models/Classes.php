@@ -7,7 +7,6 @@
  * @property string $id
  * @property string $class
  * @property string $school
- * @property string $section
  * @property integer $status
  * @property integer $deleted
  * @property string $date_entered
@@ -33,13 +32,13 @@ class Classes extends BaseModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, class, school, section, date_entered, date_modified, created_by, modified_by', 'required'),
+			array('id, class, school, date_entered, date_modified, created_by, modified_by', 'required'),
 			array('status, deleted', 'numerical', 'integerOnly'=>true),
-			array('id, school, section, created_by, modified_by', 'length', 'max'=>36),
+			array('id, school, created_by, modified_by', 'length', 'max'=>36),
 			array('class', 'length', 'max'=>8),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, class, school, section, status, deleted, date_entered, date_modified, created_by, modified_by', 'safe', 'on'=>'search'),
+			array('id, class, school, status, deleted, date_entered, date_modified, created_by, modified_by', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +62,6 @@ class Classes extends BaseModel
 			'id' => 'ID',
 			'class' => 'Class',
 			'school' => 'School',
-			'section' => 'Section',
 			'status' => 'Status',
 			'deleted' => 'Deleted',
 			'date_entered' => 'Date Entered',
@@ -94,7 +92,6 @@ class Classes extends BaseModel
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('class',$this->class,true);
 		$criteria->compare('school',Yii::app()->user->getState('school_id'));
-		$criteria->compare('section',$this->section,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('deleted',$this->deleted);
 		$criteria->compare('date_entered',$this->date_entered,true);
