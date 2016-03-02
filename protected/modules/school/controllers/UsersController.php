@@ -6,7 +6,7 @@ class UsersController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/school_column2';
 
 	/**
 	 * @return array action filters
@@ -28,13 +28,14 @@ class UsersController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','error'),
+				'actions'=>array('error'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
+			array('allow',
+                'actions' => array('index', 'create', 'update', 'view', 'manage', 'delete'),
+                'users' => array('@'),
+                'expression' => '(isset($user->role) && ($user->role === "Principal"))||(isset($user->role) && ($user->role === "Account Manager"))'
+            ),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
@@ -75,19 +76,22 @@ class UsersController extends Controller
 	public function actionCreate()
 	{
 		$model=new Users;
-
+		$school = Yii::app()->user->getState('school_id');
+		$roles = CHtml::listData(BaseModel::getAll('Roles',array("condition" => "role <> 'Super Admin'")), 'id', 'role');
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Users']))
 		{
 			$model->attributes=$_POST['Users'];
+			$model->school_id = $school;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+			'roles'=>$roles
 		));
 	}
 
@@ -99,7 +103,8 @@ class UsersController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+		$school = Yii::app()->user->getState('school_id');
+		$roles = CHtml::listData(BaseModel::getAll('Roles',array("condition" => "role <> 'Super Admin'")), 'id', 'role');
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -112,6 +117,7 @@ class UsersController extends Controller
 
 		$this->render('update',array(
 			'model'=>$model,
+			'roles'=>$roles
 		));
 	}
 
@@ -122,11 +128,15 @@ class UsersController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		$model = $this->loadModel($id);
+
+		$model->deleted = 1;
+
+		$model->save();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('manage'));
 	}
 
 	/**
@@ -134,24 +144,23 @@ class UsersController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Users');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+		$this->redirect(array('manage'));
 	}
 
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	public function actionManage()
 	{
 		$model=new Users('search');
 		$model->unsetAttributes();  // clear any default values
+		$roles = CHtml::listData(BaseModel::getAll('Roles',array("condition" => "role <> 'Super Admin'")), 'id', 'role');
 		if(isset($_GET['Users']))
 			$model->attributes=$_GET['Users'];
 
 		$this->render('admin',array(
 			'model'=>$model,
+			'roles'=>$roles
 		));
 	}
 
@@ -181,5 +190,10 @@ class UsersController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	public function gridRole($data)
+	{
+		return Roles::model()->findByPk($data->role)->role;
 	}
 }

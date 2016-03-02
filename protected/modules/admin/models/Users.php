@@ -40,6 +40,9 @@ class Users extends AdminBaseModel
 		// will receive user inputs.
 		return array(
 			array('id, username, password, verifyPassword, role, firstname, lastname, email, mobile, date_entered, date_modified, created_by, modified_by', 'required'),
+			array('username','unique', 'message'=>'Please choose different username.'),
+			array('email','unique', 'message'=>'Email already present in our database.'),
+			array('password', 'compare', 'compareAttribute'=>'verifyPassword' , 'message'=>'Password Does not Matches!'),
 			array('status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, role, school_id, created_by, modified_by', 'length', 'max'=>36),
 			array('username, password, verifyPassword, firstname, lastname, email', 'length', 'max'=>128),

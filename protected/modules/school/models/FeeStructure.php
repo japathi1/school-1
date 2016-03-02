@@ -94,7 +94,7 @@ class FeeStructure extends BaseModel
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('school_id',$this->school_id,true);
+		$criteria->compare('school_id',Yii::app()->user->getState('school_id'));
 		$criteria->compare('class_id',$this->class_id,true);
 		$criteria->compare('fee_label_id',$this->fee_label_id,true);
 		$criteria->compare('amount',$this->amount);

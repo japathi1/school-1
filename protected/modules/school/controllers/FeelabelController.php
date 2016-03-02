@@ -108,8 +108,10 @@ class FeelabelController extends Controller {
      * @param integer $id the ID of the model to be deleted
      */
     public function actionDelete($id) {
-        $this->loadModel($id)->delete();
-
+        $model = $this->loadModel($id);
+        $model->deleted = 1;
+        $model->save();
+        FeeStructure::model()->updateAll(['deleted' => 1], "school = '$school' AND fee_label_id = '$id'");
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if (!isset($_GET['ajax']))
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('manage'));

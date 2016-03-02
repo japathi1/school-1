@@ -40,6 +40,9 @@ class Users extends BaseModel
 		// will receive user inputs.
 		return array(
 			array('id, username, password, verifyPassword, role, firstname, lastname, email, mobile, date_entered, date_modified, created_by, modified_by', 'required'),
+			array('username','unique', 'message'=>'Please choose different username.'),
+			array('email','unique', 'message'=>'Email already present in our database.'),
+			array('password', 'compare', 'compareAttribute'=>'verifyPassword' , 'message'=>'Password Does not Matches!'),
 			array('status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, role, school_id, created_by, modified_by', 'length', 'max'=>36),
 			array('username, password, verifyPassword, firstname, lastname, email', 'length', 'max'=>128),
@@ -108,7 +111,7 @@ class Users extends BaseModel
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('role',$this->role,true);
-		$criteria->compare('school_id',$this->school_id,true);
+		$criteria->compare('school_id',Yii::app()->user->getState('school_id'));
 		$criteria->compare('firstname',$this->firstname,true);
 		$criteria->compare('lastname',$this->lastname,true);
 		$criteria->compare('email',$this->email,true);

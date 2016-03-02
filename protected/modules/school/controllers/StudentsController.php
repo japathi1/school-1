@@ -121,8 +121,12 @@ class StudentsController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
-
+		$model = $this->loadModel($id);
+		$model->deleted = 1;
+		$model->save();
+		$school = Yii::app()->user->getState('school_id');
+		Parents::model()->updateAll(['deleted' => 1],"school = '$school' AND child = '$id'");
+		Transactions::model()->updateAll(['deleted' => 1],"school = '$school' AND student = '$id'");
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('manage'));

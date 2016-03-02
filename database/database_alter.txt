@@ -1,1 +1,5 @@
 ALTER TABLE `sections` ADD `class` CHAR(36) NOT NULL AFTER `section`;
+
+ALTER TABLE `student_parent` DROP `type`;
+
+ALTER TABLE `student_parent` CHANGE `parent_type` `parent_type` ENUM('father','mother','guardian') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT 'father';

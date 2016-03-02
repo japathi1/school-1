@@ -47,13 +47,12 @@ class Parents extends BaseModel
 			array('status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, school, child, state, created_by, modified_by', 'length', 'max'=>36),
 			array('firstname, lastname, email, contact', 'length', 'max'=>128),
-			array('type', 'length', 'max'=>7),
 			array('parent_type', 'length', 'max'=>8),
 			array('address_line_1, address_line_2, city', 'length', 'max'=>255),
 			array('pincode', 'length', 'max'=>6),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, school, child, firstname, lastname, type, parent_type, email, contact, address_line_1, address_line_2, city, state, pincode, status, deleted, date_entered, date_modified, created_by, modified_by', 'safe', 'on'=>'search'),
+			array('id, school, child, firstname, lastname, parent_type, email, contact, address_line_1, address_line_2, city, state, pincode, status, deleted, date_entered, date_modified, created_by, modified_by', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,10 +75,9 @@ class Parents extends BaseModel
 		return array(
 			'id' => 'ID',
 			'school' => 'School',
-			'child' => 'Child',
+			'child' => 'Student',
 			'firstname' => 'Firstname',
 			'lastname' => 'Lastname',
-			'type' => 'Type',
 			'parent_type' => 'Parent Type',
 			'email' => 'Email',
 			'contact' => 'Contact',
@@ -116,11 +114,10 @@ class Parents extends BaseModel
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('school',$this->school,true);
+		$criteria->compare('school',Yii::app()->user->getState('school_id'));
 		$criteria->compare('child',$this->child,true);
 		$criteria->compare('firstname',$this->firstname,true);
 		$criteria->compare('lastname',$this->lastname,true);
-		$criteria->compare('type',$this->type,true);
 		$criteria->compare('parent_type',$this->parent_type,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('contact',$this->contact,true);

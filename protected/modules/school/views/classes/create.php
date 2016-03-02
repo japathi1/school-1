@@ -16,7 +16,7 @@
 				<div class="box-header with-border">
 					<h3 class="box-title">Class</h3>
 				</div>
-				<?php $this->renderPartial('_form', array('model'=>$model,'sections'=>$sections)); ?>
+				<?php $this->renderPartial('_form', array('model'=>$model)); ?>
 			</div>
 		</div>
 	</div>
