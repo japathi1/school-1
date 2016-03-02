@@ -28,7 +28,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'fee_laabel_id'); ?>
-		<?php echo $form->textField($model,'fee_laabel_id',array('size'=>36,'maxlength'=>36)); ?>
+		<?php echo $form->textField($model,'fee_label_id',array('size'=>36,'maxlength'=>36)); ?>
 	</div>
 
 	<div class="row">

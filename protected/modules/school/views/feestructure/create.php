@@ -16,7 +16,7 @@
 				<div class="box-header with-border">
 					<h3 class="box-title">Fee Structure</h3>
 				</div>
-				<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+				<?php $this->renderPartial('_form', array('model'=>$model,'classes'=>$classes,'fee_labels'=>$fee_labels)); ?>
 			</div>
 		</div>
 	</div>

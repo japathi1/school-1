@@ -1,36 +1,53 @@
-<?php
-/* @var $this FeestructureController */
-/* @var $model FeeStructure */
+<section class="content-header">
+    <h1>
+        Fee Structure
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo base_url() . '/school'; ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="<?php echo base_url() . '/school/feestructure'; ?>"><i class="fa fa-dashboard"></i> Fee Structure</a></li>
+        <li class="active">View</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <small>
+                            <a href="<?php echo base_url() . '/school/feestructure/update?id=' . $model->id; ?>">EDIT</a>
+                        </small>
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <div class="col-xs-12 table-responsive">
+                        <?php
+                        $this->widget('zii.widgets.CDetailView', array(
+                            // 'itemsCssClass' => 'table table-bordered table-hover dataTable',
+                            'htmlOptions' => array("class" => "table table-bordered table-hover dataTable"),
+                            'data' => $model,
+                            'attributes' => array(
+                                array(
+                                    'label' => 'Class',
+                                    'type' => 'raw',
+                                    'value' => Classes::model()->findByPk($model->class_id)->class,
+                                ),
+                                array(
+                                    'label' => 'Fee Label',
+                                    'type' => 'raw',
+                                    'value' => FeeLabel::model()->findByPk($model->fee_label_id)->fee_label,
+                                ),
+                                'amount'
+                            ),
+                        ));
+                        ?>
+                        <div class="col-xs-12">
+                            <?php echo CHtml::link('Back', array('/school/feestructure'), array("class" => 'btn btn-info pull-right', "style" => "margin-left:10px;")); ?>
+                        </div>
+                    </div>
 
-$this->breadcrumbs=array(
-	'Fee Structures'=>array('index'),
-	$model->id,
-);
-
-$this->menu=array(
-	array('label'=>'List FeeStructure', 'url'=>array('index')),
-	array('label'=>'Create FeeStructure', 'url'=>array('create')),
-	array('label'=>'Update FeeStructure', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete FeeStructure', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage FeeStructure', 'url'=>array('admin')),
-);
-?>
-
-<h1>View FeeStructure #<?php echo $model->id; ?></h1>
-
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'school_id',
-		'class_id',
-		'fee_laabel_id',
-		'amount',
-		'status',
-		'deleted',
-		'date_entered',
-		'date_modified',
-		'created_by',
-		'modified_by',
-	),
-)); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
