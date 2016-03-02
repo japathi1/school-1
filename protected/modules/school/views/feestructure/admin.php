@@ -26,11 +26,11 @@
 							return false;
 						});
 						");
-//                $this->renderPartial('_search', array(
-//                    'model' => $model,
-//                    'sections' => $sections,
-//                    'classes' => $classes,
-//                ));
+                $this->renderPartial('_search', array(
+                    'model' => $model,
+                    'classes'=>$classes,
+                    'fee_labels'=>$fee_labels
+                ));
                 ?>
             </div>
             <div class="box">

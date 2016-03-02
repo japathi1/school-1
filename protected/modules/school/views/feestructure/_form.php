@@ -31,7 +31,7 @@ $form = $this->beginWidget('CActiveForm', array(
 
 
 <div class="box-footer">
-    <?php echo CHtml::link('Back', array('/school/students'), array("class" => 'btn btn-info pull-right', "style" => "margin-left:10px;")); ?>
+    <?php echo CHtml::link('Back', array('/school/feestructure'), array("class" => 'btn btn-info pull-right', "style" => "margin-left:10px;")); ?>
     <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array("class" => 'btn btn-info pull-right')); ?>
 </div>
 
