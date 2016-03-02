@@ -1,9 +1,0 @@
-2016/02/29 21:09:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "school/fees".' in C:\xampp\htdocs\school\framework\web\CWebApplication.php:286
-Stack trace:
-#0 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController('school/fees')
-#1 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
-#2 C:\xampp\htdocs\school\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/school/school/fees
-HTTP_REFERER=http://localhost/school/index.php/school/feelabel/manage
----
