@@ -67,18 +67,24 @@ class FeestructureController extends Controller {
      */
     public function actionCreate() {
         $model = new FeeStructure;
-
+        $school_id = Yii::app()->user->getState('school_id');
+        $classes = CHtml::listData(BaseModel::getAll('Classes', array("condition" => "school = '$school_id'")), 'id', 'class');
+        $fee_labels = CHtml::listData(BaseModel::getAll('FeeLabel', array("condition" => "school_id = '$school_id'")), 'id', 'fee_label');
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['FeeStructure'])) {
             $model->attributes = $_POST['FeeStructure'];
+            $model->school_id = $school_id;
+
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->id));
         }
 
         $this->render('create', array(
             'model' => $model,
+            'classes' => $classes,
+            'fee_labels' => $fee_labels,
         ));
     }
 
@@ -88,6 +94,11 @@ class FeestructureController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
+
+        $school_id = Yii::app()->user->getState('school_id');
+        $classes = CHtml::listData(BaseModel::getAll('Classes', array("condition" => "school = '$school_id'")), 'id', 'class');
+        $fee_labels = CHtml::listData(BaseModel::getAll('FeeLabel', array("condition" => "school_id = '$school_id'")), 'id', 'fee_label');
+
         $model = $this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed
@@ -101,6 +112,8 @@ class FeestructureController extends Controller {
 
         $this->render('update', array(
             'model' => $model,
+            'classes' => $classes,
+            'fee_labels' => $fee_labels,
         ));
     }
 
@@ -114,30 +127,32 @@ class FeestructureController extends Controller {
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if (!isset($_GET['ajax']))
-            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('manage'));
     }
 
     /**
      * Lists all models.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('FeeStructure');
-        $this->render('index', array(
-            'dataProvider' => $dataProvider,
-        ));
+        $this->redirect(array('manage'));
     }
 
     /**
      * Manages all models.
      */
-    public function actionAdmin() {
+    public function actionManage() {
         $model = new FeeStructure('search');
+        $school_id = Yii::app()->user->getState('school_id');
+        $classes = CHtml::listData(BaseModel::getAll('Classes', array("condition" => "school = '$school_id'")), 'id', 'class');
+        $fee_labels = CHtml::listData(BaseModel::getAll('FeeLabel', array("condition" => "school_id = '$school_id'")), 'id', 'fee_label');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['FeeStructure']))
             $model->attributes = $_GET['FeeStructure'];
 
         $this->render('admin', array(
             'model' => $model,
+            'classes' => $classes,
+            'fee_labels' => $fee_labels,
         ));
     }
 
@@ -164,6 +179,14 @@ class FeestructureController extends Controller {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
+    }
+
+    public function className($data) {
+        return Classes::model()->findByPk($data->class_id)->class;
+    }
+
+    public function feeLabel($data) {
+        return FeeLabel::model()->findByPk($data->fee_label_id)->fee_label;
     }
 
 }
