@@ -10,3 +10,21 @@ ALTER TABLE `extra_fee` CHANGE `transaction` `school_id` CHAR(36) CHARACTER SET 
 ALTER TABLE `extra_fee` ADD `student_id` CHAR(36) NOT NULL AFTER `school_id`;
 ALTER TABLE `extra_fee` CHANGE `fee_name` `label` VARCHAR(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
 ALTER TABLE `extra_fee` CHANGE `amount` `amount` DOUBLE NOT NULL;
+
+/* 4-3-2016  */
+
+CREATE TABLE IF NOT EXISTS `student_fee` (
+  `id` char(36) NOT NULL,
+  `student_id` char(36) NOT NULL,
+  `fee_structure_id` char(36) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `created_by` char(36) NOT NULL,
+  `modified_by` char(36) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
