@@ -96,6 +96,7 @@ class StudentsController extends Controller
 		$sections = CHtml::listData(BaseModel::getAll('Sections',array("condition" => "school = '$school'")), 'id', 'section');
 		$classes = CHtml::listData(BaseModel::getAll('Classes',array("condition" => "school = '$school'")), 'id', 'class');
 		$states = CHtml::listData(BaseModel::getAll('States'), 'id', 'state');
+                
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
