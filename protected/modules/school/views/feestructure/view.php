@@ -5,7 +5,7 @@
     <ol class="breadcrumb">
         <li><a href="<?php echo base_url() . '/school'; ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="<?php echo base_url() . '/school/feestructure'; ?>"><i class="fa fa-dashboard"></i> Fee Structure</a></li>
-        <li class="active">View</li>
+        <li class="active">View   </li>
     </ol>
 </section>
 <section class="content">

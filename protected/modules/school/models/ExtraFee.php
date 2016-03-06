@@ -1,13 +1,13 @@
 <?php
 
 /**
- * This is the model class for table "fee_structure".
+ * This is the model class for table "extra_fee".
  *
- * The followings are the available columns in table 'fee_structure':
+ * The followings are the available columns in table 'extra_fee':
  * @property string $id
  * @property string $school_id
- * @property string $class_id
- * @property string $fee_label_id
+ * @property string $student_id
+ * @property string $label
  * @property double $amount
  * @property integer $status
  * @property integer $deleted
@@ -16,14 +16,14 @@
  * @property string $created_by
  * @property string $modified_by
  */
-class FeeStructure extends BaseModel
+class ExtraFee extends BaseModel
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'fee_structure';
+		return 'extra_fee';
 	}
 
 	/**
@@ -34,13 +34,14 @@ class FeeStructure extends BaseModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, school_id, class_id, fee_label_id, amount, date_entered, date_modified, created_by, modified_by', 'required'),
+			array('id, school_id, student_id, label, amount, date_entered, date_modified, created_by, modified_by', 'required'),
 			array('status, deleted', 'numerical', 'integerOnly'=>true),
 			array('amount', 'numerical'),
-			array('id, school_id, class_id, fee_label_id, created_by, modified_by', 'length', 'max'=>36),
+			array('id, school_id, student_id, created_by, modified_by', 'length', 'max'=>36),
+			array('label', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, school_id, class_id, fee_label_id, amount, status, deleted, date_entered, date_modified, created_by, modified_by', 'safe', 'on'=>'search'),
+			array('id, school_id, student_id, label, amount, status, deleted, date_entered, date_modified, created_by, modified_by', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,7 +53,6 @@ class FeeStructure extends BaseModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                     'fee_label'=>array(self::BELONGS_TO, 'FeeLabel', 'fee_label_id'),
 		);
 	}
 
@@ -64,8 +64,8 @@ class FeeStructure extends BaseModel
 		return array(
 			'id' => 'ID',
 			'school_id' => 'School',
-			'class_id' => 'Class',
-			'fee_label_id' => 'Fee Label',
+			'student_id' => 'Student',
+			'label' => 'Label',
 			'amount' => 'Amount',
 			'status' => 'Status',
 			'deleted' => 'Deleted',
@@ -95,9 +95,9 @@ class FeeStructure extends BaseModel
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('school_id',Yii::app()->user->getState('school_id'));
-		$criteria->compare('class_id',$this->class_id,true);
-		$criteria->compare('fee_label_id',$this->fee_label_id,true);
+		$criteria->compare('school_id',$this->school_id,true);
+		$criteria->compare('student_id',$this->student_id,true);
+		$criteria->compare('label',$this->label,true);
 		$criteria->compare('amount',$this->amount);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('deleted',$this->deleted);
@@ -115,7 +115,7 @@ class FeeStructure extends BaseModel
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return FeeStructure the static model class
+	 * @return ExtraFee the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

@@ -16,7 +16,7 @@
 				<div class="box-header with-border">
 					<h3 class="box-title"><?php echo $model->firstname.' '.$model->middlename.' '.$model->lastname.'('.$model->roll_number.')'; ?></h3>
 				</div>
-				<?php $this->renderPartial('_form', array('model'=>$model,'classes' => $classes,'sections'=>$sections,'states'=>$states)); ?>
+				<?php $this->renderPartial('_form', array('model'=>$model,'classes' => $classes,'sections'=>$sections,'states'=>$states,'fee_structure'=>$fee_structure,'fee_options_arr'=>$fee_options_arr)); ?>
 			</div>
 		</div>
 	</div>
