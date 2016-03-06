@@ -3,3 +3,7 @@ ALTER TABLE `sections` ADD `class` CHAR(36) NOT NULL AFTER `section`;
 ALTER TABLE `student_parent` DROP `type`;
 
 ALTER TABLE `student_parent` CHANGE `parent_type` `parent_type` ENUM('father','mother','guardian') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT 'father';
+
+05-03-2016
+
+ALTER TABLE `schools` ADD `payment_api_key` VARCHAR(128) NULL AFTER `name`, ADD `payment_secret_key` VARCHAR(128) NULL AFTER `payment_api_key`, ADD `school_logo` VARCHAR(256) NULL AFTER `payment_secret_key`;

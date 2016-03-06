@@ -4,14 +4,31 @@
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>false
 )); ?>
 <div class="box-body">
 	<div class="form-group">
-		<div class="col-xs-12">
+		<div class="col-xs-6">
 			<?php echo $form->labelEx($model,'name'); ?>
 			<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>512,'class' => 'form-control')); ?>
 			<?php echo $form->error($model,'name'); ?>
+		</div>
+		<div class="col-xs-6">
+			<?php echo $form->labelEx($model,'school_logo'); ?>
+			<?php echo $form->fileField($model,'school_logo',array('size'=>60,'maxlength'=>512,'class' => 'form-control')); ?>
+			<?php echo $form->error($model,'school_logo'); ?>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-6">
+			<?php echo $form->labelEx($model,'payment_api_key'); ?>
+			<?php echo $form->textField($model,'payment_api_key',array('size'=>60,'maxlength'=>512,'class' => 'form-control')); ?>
+			<?php echo $form->error($model,'payment_api_key'); ?>
+		</div>
+		<div class="col-xs-6">
+			<?php echo $form->labelEx($model,'payment_secret_key'); ?>
+			<?php echo $form->textField($model,'payment_secret_key',array('size'=>60,'maxlength'=>512,'class' => 'form-control')); ?>
+			<?php echo $form->error($model,'payment_secret_key'); ?>
 		</div>
 	</div>
 	<div class="form-group">
@@ -61,8 +78,6 @@
 		</div>
 	</div>
 </div>
-
-
 <div class="box-footer">
     <?php echo CHtml::link('Back',array('/admin/students'),array("class" => 'btn btn-info pull-right',"style"=>"margin-left:10px;")); ?>
     <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array("class" => 'btn btn-info pull-right')); ?>

@@ -41,8 +41,8 @@ class Schools extends BaseModel
 			array('status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, state, created_by, modified_by', 'length', 'max'=>36),
 			array('name', 'length', 'max'=>512),
-			array('address_line_1, address_line_2', 'length', 'max'=>255),
-			array('city', 'length', 'max'=>128),
+			array('school_logo, address_line_1, address_line_2', 'length', 'max'=>255),
+			array('city, payment_api_key, payment_secret_key', 'length', 'max'=>128),
 			array('pin', 'length', 'max'=>6),
 			array('contact', 'length', 'max'=>16),
 			// The following rule is used by search().
@@ -70,6 +70,9 @@ class Schools extends BaseModel
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
+			'payment_api_key' => 'Payment API Key',
+			'payment_secret_key' => 'Payment Secret Key',
+			'school_logo' => 'School Logo',
 			'address_line_1' => 'Address Line 1',
 			'address_line_2' => 'Address Line 2',
 			'city' => 'City',
@@ -105,6 +108,9 @@ class Schools extends BaseModel
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('name',$this->name,true);
+		$criteria->compare('payment_api_key',$this->payment_api_key,true);
+		$criteria->compare('payment_secret_key',$this->payment_secret_key,true);
+		$criteria->compare('school_logo',$this->school_logo,true);
 		$criteria->compare('address_line_1',$this->address_line_1,true);
 		$criteria->compare('address_line_2',$this->address_line_2,true);
 		$criteria->compare('city',$this->city,true);
