@@ -1,18 +1,16 @@
 <?php
 
-class LoginController extends Controller
-{
-	/**
-	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
-	 */
-	
-	public $layout = '//layouts/login_main';
+class LoginController extends Controller {
 
+    /**
+     * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
+     * using two-column layout. See 'protected/views/layouts/column2.php'.
+     */
+    public $layout = '//layouts/login_main';
 
-	public function actionIndex(){
+    public function actionIndex() {
 
-		if (!isFrontUserLoggedIn()) {
+        if (!isFrontUserLoggedIn()) {
             $model = new LoginForm;
             $mail_sent_message = '';
             // collect user input data
@@ -20,9 +18,11 @@ class LoginController extends Controller
                 $model->attributes = $_POST['LoginForm'];
                 // validate user input and redirect to previous page if valid
                 if ($model->validate()) {
-
                     $user_id = $_SESSION['user_id'];
                     $this->redirect(array("/admin/dashboard"));
+                } else {
+                    echo "not validated";
+                    die("dfsd");
                 }
             }
             // display the login form
@@ -34,6 +34,6 @@ class LoginController extends Controller
             } else
                 $this->redirect(Yii::app()->controller->module->returnUrl);
         }
-	}
+    }
 
 }
