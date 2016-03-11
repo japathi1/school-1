@@ -32,7 +32,11 @@
 								'address_line_1',
 								'address_line_2',
 								'city',
-								'state',
+                                                                array(
+                                        'label'=>'State',
+                                        'type'=>'raw',
+                                        'value'=>$model->state_detail->state,
+                                    ),
 								'pin',
 								'contact',
                             ),
