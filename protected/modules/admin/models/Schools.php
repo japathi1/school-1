@@ -59,6 +59,7 @@ class Schools extends AdminBaseModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'state_detail'=>array(self::BELONGS_TO, 'States', 'state'),
 		);
 	}
 
