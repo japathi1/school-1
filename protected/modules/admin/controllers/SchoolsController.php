@@ -65,8 +65,9 @@ class SchoolsController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Schools;
+		$model = new Schools;
 		$states = CHtml::listData(BaseModel::getAll('States'), 'id', 'state');
+                $roles = CHtml::listData(BaseModel::getAll('Roles'), 'id', 'role');
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -79,7 +80,8 @@ class SchoolsController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
-			'states'=>$states
+			'states'=>$states,
+                        'roles'=>$roles
 		));
 	}
 
