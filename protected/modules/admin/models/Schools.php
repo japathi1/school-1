@@ -119,7 +119,7 @@ class Schools extends AdminBaseModel
 		$criteria->compare('pin',$this->pin,true);
 		$criteria->compare('contact',$this->contact,true);
 		$criteria->compare('status',$this->status);
-		$criteria->compare('deleted',$this->deleted);
+		$criteria->compare('deleted',0);
 		$criteria->compare('date_entered',$this->date_entered,true);
 		$criteria->compare('date_modified',$this->date_modified,true);
 		$criteria->compare('created_by',$this->created_by,true);

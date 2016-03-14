@@ -5,6 +5,6 @@ return array (
   'tablePrefix' => '',
   'modelPath' => 'application.modules.school.models',
   'baseClass' => 'BaseModel',
-  'buildRelations' => '0',
+  'buildRelations' => '1',
   'commentsAsLabels' => '0',
 );

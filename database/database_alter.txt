@@ -29,3 +29,7 @@ CREATE TABLE IF NOT EXISTS `student_fee` (
 /*05-03-2016*/
 
 ALTER TABLE `schools` ADD `payment_api_key` VARCHAR(128) NULL AFTER `name`, ADD `payment_secret_key` VARCHAR(128) NULL AFTER `payment_api_key`, ADD `school_logo` VARCHAR(256) NULL AFTER `payment_secret_key`;
+
+/* 13-3-2016 */
+
+ALTER TABLE `transactions` ADD `amount_detail` TEXT NOT NULL AFTER `amount`; 

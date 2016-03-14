@@ -49,7 +49,7 @@ class StudentFee extends BaseModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    
+                    'fee_structure'=>array(self::BELONGS_TO, 'FeeStructure', 'fee_structure_id'),
 		);
 	}
 

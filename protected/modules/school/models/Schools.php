@@ -59,6 +59,7 @@ class Schools extends BaseModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'students_list'=>array(self::HAS_MANY, 'Students', 'school'),
 		);
 	}
 

@@ -26,7 +26,7 @@ class StudentsController extends Controller {
     public function accessRules() {
         return array(
             array('allow',
-                'actions' => array('index', 'create', 'update', 'view', 'manage', 'feeoptions','extrafee','removefee', 'delete', 'sections'),
+                'actions' => array('index', 'create', 'update', 'view', 'manage', 'feeoptions', 'extrafee', 'removefee', 'delete', 'sections'),
                 'users' => array('@'),
                 'expression' => '(isset($user->role) && ($user->role === "Principal"))||(isset($user->role) && ($user->role === "Account Manager"))'
             ),
@@ -67,8 +67,18 @@ class StudentsController extends Controller {
         if (isset($_POST['Students'])) {
             $model->attributes = $_POST['Students'];
             $model->school = $school;
-            if ($model->save())
+            if ($model->save()) {
+                // for entry in the student_fee table
+                $fee_structures = FeeStructure::model()->findAll(array("condition" => "school_id = '$model->school' AND class_id = '$model->class' "));
+                foreach ($fee_structures as $fee_structure) {
+                    $student_fee = new StudentFee;
+                    $student_fee->student_id = $model->id;
+                    $student_fee->fee_structure_id = $fee_structure->id;
+                    $student_fee->save();
+                }
+                // end for entry in the student_fee table
                 $this->redirect(array('view', 'id' => $model->id));
+            }
         }
 
         $this->render('create', array(
@@ -130,7 +140,7 @@ class StudentsController extends Controller {
         }
         $this->redirect(array('update', 'id' => $id));
     }
-    
+
     public function actionExtrafee($id) {
         $model = $this->loadModel($id);
         //pre($_POST,true);
@@ -146,17 +156,13 @@ class StudentsController extends Controller {
         }
         $this->redirect(array('update', 'id' => $id));
     }
-    
-    public function actionRemovefee()
-    {
-        $id  = $_POST['id'];
+
+    public function actionRemovefee() {
+        $id = $_POST['id'];
         $condition = "id = '$id'";
         ExtraFee::model()->deleteAll($condition);
         echo "SUCCESS";
-        
-    }        
-    
-    
+    }
 
     /**
      * Deletes a particular model.

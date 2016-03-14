@@ -15,7 +15,7 @@ class UsersController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			//'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -66,6 +66,7 @@ class UsersController extends Controller
 	public function actionCreate()
 	{
 		$model=new Users;
+                
 		$schools = CHtml::listData(BaseModel::getAll('Schools'), 'id', 'name');
         $roles = CHtml::listData(BaseModel::getAll('Roles'), 'id', 'role');
 		// Uncomment the following line if AJAX validation is needed
@@ -74,6 +75,8 @@ class UsersController extends Controller
 		if(isset($_POST['Users']))
 		{
 			$model->attributes=$_POST['Users'];
+                        $model->password = md5($model->password);
+                        $model->verifyPassword = $model->password;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -122,7 +125,7 @@ class UsersController extends Controller
 		$model = $this->loadModel($id);
 
 		$model->deleted = 1;
-
+                $model->verifyPassword = $model->password;
 		$model->save();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
