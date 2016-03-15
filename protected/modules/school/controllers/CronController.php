@@ -55,9 +55,6 @@ class CronController extends Controller {
                     $transaction->year = date('Y');
                     $transaction->payment_status = 'pending';
                     $transaction->save();
-
-                    pre($total_fee_amount);
-                    pre($total_extra_fee_amount);
                 }
             }
         }
