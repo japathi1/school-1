@@ -70,11 +70,13 @@ class StudentsController extends Controller {
             if ($model->save()) {
                 // for entry in the student_fee table
                 $fee_structures = FeeStructure::model()->findAll(array("condition" => "school_id = '$model->school' AND class_id = '$model->class' "));
-                foreach ($fee_structures as $fee_structure) {
-                    $student_fee = new StudentFee;
-                    $student_fee->student_id = $model->id;
-                    $student_fee->fee_structure_id = $fee_structure->id;
-                    $student_fee->save();
+                if (!empty($fee_structures)) {
+                    foreach ($fee_structures as $fee_structure) {
+                        $student_fee = new StudentFee;
+                        $student_fee->student_id = $model->id;
+                        $student_fee->fee_structure_id = $fee_structure->id;
+                        $student_fee->save();
+                    }
                 }
                 // end for entry in the student_fee table
                 $this->redirect(array('view', 'id' => $model->id));
