@@ -60,9 +60,11 @@ class Students extends BaseModel {
     public function relations() {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
+        $current_month = date('m');
+        $current_year = date('Y');
         return array(
             'fee_options' => array(self::HAS_MANY, 'StudentFee', 'student_id'),
-            'extra_fee' => array(self::HAS_MANY, 'ExtraFee', 'student_id'),
+            'extra_fee' => array(self::HAS_MANY, 'ExtraFee', 'student_id','condition'=>'MONTH(extra_fee.date_entered) = '.$current_month.' AND YEAR(extra_fee.date_entered) = '.$current_year.' ' ),
         );
     }
 
