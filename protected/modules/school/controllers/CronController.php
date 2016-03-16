@@ -42,7 +42,7 @@ class CronController extends Controller {
                     }
                     $total_amount = $total_fee_amount + $total_extra_fee_amount;
 
-                    $transaction = new Transactions();
+                    $transaction = new Transactions;
                     $transaction->school = $student->school;
                     $transaction->student = $student->id;
                     $transaction->class = $student->class;
@@ -60,5 +60,35 @@ class CronController extends Controller {
         }
 
     }
+    
+    
+    public function actionTest()
+    {
+        $school_id = 'a0baf6ae-ad68-431e-3bc7-56e588fad358';
+        $school = Schools::model()->find(array("condition"=>"id = '$school_id'"));
+        $school_arr = explode(' ',strtoupper($school->name)); 
+        $slug = '';
+        foreach($school_arr as $school)
+        {
+            $slug = $slug.substr($school, 0, 1);
+        }    
+        
+        $year = date('y');
+        for($i=0; $i<=10;$i++)
+        {
+            $format = new Format;
+            $format->school_id = $school_id;
+            $format->school_slug = $slug;
+            $format->year = $year;
+            $format->receipt_no = 0;
+            $format->save();
+            $year++;
+           
+        }        
+        
+    }        
+    
+    
+    
 
 }
