@@ -14,8 +14,8 @@ function base_url() {
     return Yii::app()->baseUrl;
 }
 
-function domainUrl(){
-    return 'http://'.$_SERVER['SERVER_NAME'].Yii::app()->baseUrl;
+function domainUrl() {
+    return 'http://' . $_SERVER['SERVER_NAME'] . Yii::app()->baseUrl;
 }
 
 function create_guid() {
@@ -151,7 +151,7 @@ function uploadFile($name, $type, $tmp_name, $path) {
     return $randomName;
 }
 
-function trimString($string,$len = 200) {
+function trimString($string, $len = 200) {
     $string = strip_tags($string);
 
     if (strlen($string) > $len) {
@@ -350,59 +350,57 @@ function encryption($str) {
 
 // function for uploading files to S3
 // if $thumb = true then thumbnail will also be stored
-function uploadToS3($image_tmp_name, $user_image ,$thumb = FALSE) {
+function uploadToS3($image_tmp_name, $user_image, $thumb = FALSE) {
     Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
     $tmp = explode('.', $user_image);
     $extension = end($tmp);
     $randomName = rand(123456, 1234567890) . '.' . $extension;
     if (Yii::app()->s3->putObjectFile($image_tmp_name, "tbrs3", $randomName, S3::ACL_PUBLIC_READ)) {
-        if($thumb)
-        {
-                $thumbWidth = 250;
-                //get the path info
-                $info = pathinfo($user_image);
-                $extension = strtoupper($info['extension']);
-                if ($extension == 'JPG' || $extension == 'JPEG') {
-                    $img = imagecreatefromjpeg($image_tmp_name);
-                } else if ($extension == 'GIF') {
-                    $img = imagecreatefromgif($image_tmp_name);
-                } else if ($extension == 'PNG') {
-                    $img = imagecreatefrompng($image_tmp_name);
-                }
+        if ($thumb) {
+            $thumbWidth = 250;
+            //get the path info
+            $info = pathinfo($user_image);
+            $extension = strtoupper($info['extension']);
+            if ($extension == 'JPG' || $extension == 'JPEG') {
+                $img = imagecreatefromjpeg($image_tmp_name);
+            } else if ($extension == 'GIF') {
+                $img = imagecreatefromgif($image_tmp_name);
+            } else if ($extension == 'PNG') {
+                $img = imagecreatefrompng($image_tmp_name);
+            }
 
-                // load image and get image size
+            // load image and get image size
 
-                $width = imagesx($img);
-                $height = imagesy($img);
-                
-                    // calculate thumbnail size
+            $width = imagesx($img);
+            $height = imagesy($img);
 
-                    $new_width = $thumbWidth;
-                    $new_height = floor($height * ( $thumbWidth / $width ));
+            // calculate thumbnail size
 
-                    // create a new temporary image
-                    $tmp_img = imagecreatetruecolor($new_width, $new_height);
+            $new_width = $thumbWidth;
+            $new_height = floor($height * ( $thumbWidth / $width ));
 
-                    // copy and resize old image into new image 
-                    imagecopyresized($tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            // create a new temporary image
+            $tmp_img = imagecreatetruecolor($new_width, $new_height);
 
-                    // save thumbnail into a file
-                    if ($extension == 'JPG' || $extension == 'JPEG') {
-                        imagejpeg($tmp_img, "./assets/images/thumb_".$randomName);
-                    } else if ($extension == 'GIF') {
-                        imagegif($tmp_img, "./assets/images/thumb_".$randomName);
-                    } else if ($extension == 'PNG') {
-                        imagepng($tmp_img, "./assets/images/thumb_" .$randomName);
-                    }
-               Yii::app()->s3->putObjectFile("./assets/images/thumb_".$randomName, "tbrs3", "thumb_" .$randomName, S3::ACL_PUBLIC_READ);
-        }    
-        
+            // copy and resize old image into new image 
+            imagecopyresized($tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+
+            // save thumbnail into a file
+            if ($extension == 'JPG' || $extension == 'JPEG') {
+                imagejpeg($tmp_img, "./assets/images/thumb_" . $randomName);
+            } else if ($extension == 'GIF') {
+                imagegif($tmp_img, "./assets/images/thumb_" . $randomName);
+            } else if ($extension == 'PNG') {
+                imagepng($tmp_img, "./assets/images/thumb_" . $randomName);
+            }
+            Yii::app()->s3->putObjectFile("./assets/images/thumb_" . $randomName, "tbrs3", "thumb_" . $randomName, S3::ACL_PUBLIC_READ);
+        }
+
         return $randomName;
     } else {
         echo "Something went wrong while uploading your file... sorry.";
     }
 }
-
 
 function uploadToS3Thumb($image_tmp_name, $user_image) {
     Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
@@ -422,10 +420,9 @@ function deleteFromS3($file) {
 
 // function for getting the information of an object on server
 
-function get_object_info($file)
-{
-     Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
-     return Yii::app()->s3->getObjectInfo("tbrs3", $file);
+function get_object_info($file) {
+    Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
+    return Yii::app()->s3->getObjectInfo("tbrs3", $file);
 }
 
 function callGateway($orderId, $package, $user, $post) {
@@ -503,8 +500,8 @@ function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
                 $ip = $_SERVER['HTTP_CLIENT_IP'];
         }
     }
-    $purpose    = str_replace(array("name", "\n", "\t", " ", "-", "_"), NULL, strtolower(trim($purpose)));
-    $support    = array("country", "countrycode", "state", "region", "city", "location", "address");
+    $purpose = str_replace(array("name", "\n", "\t", " ", "-", "_"), NULL, strtolower(trim($purpose)));
+    $support = array("country", "countrycode", "state", "region", "city", "location", "address");
     $continents = array(
         "AF" => "Africa",
         "AN" => "Antarctica",
@@ -520,11 +517,11 @@ function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
             switch ($purpose) {
                 case "location":
                     $output = array(
-                        "city"           => @$ipdat->geoplugin_city,
-                        "state"          => @$ipdat->geoplugin_regionName,
-                        "country"        => @$ipdat->geoplugin_countryName,
-                        "country_code"   => @$ipdat->geoplugin_countryCode,
-                        "continent"      => @$continents[strtoupper($ipdat->geoplugin_continentCode)],
+                        "city" => @$ipdat->geoplugin_city,
+                        "state" => @$ipdat->geoplugin_regionName,
+                        "country" => @$ipdat->geoplugin_countryName,
+                        "country_code" => @$ipdat->geoplugin_countryCode,
+                        "continent" => @$continents[strtoupper($ipdat->geoplugin_continentCode)],
                         "continent_code" => @$ipdat->geoplugin_continentCode
                     );
                     break;
@@ -557,37 +554,32 @@ function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
     return $output;
 }
 
-function getSubStr($str)
-{
+function getSubStr($str) {
     $final_string = $str;
     $len = strlen($final_string);
-    if($len > 80)
-    {
-        $final_string = substr($str, 0, 80)."...";
+    if ($len > 80) {
+        $final_string = substr($str, 0, 80) . "...";
     }
     return $final_string;
 }
 
-function checkAmenity($amenity_id,$property_amenities_model)
-{
-    
-   foreach($property_amenities_model  as $model)
-   {
-       if($model->amenity_id == $amenity_id)
-       {
-           return "checked";
-       }    
-   }    
+function checkAmenity($amenity_id, $property_amenities_model) {
+
+    foreach ($property_amenities_model as $model) {
+        if ($model->amenity_id == $amenity_id) {
+            return "checked";
+        }
+    }
 }
 
-function countryList(){
+function countryList() {
     return CHtml::listData(BaseModel::getAll('Country'), 'id', 'name');
 }
 
-function crypto_rand_secure($min, $max)
-{
+function crypto_rand_secure($min, $max) {
     $range = $max - $min;
-    if ($range < 1) return $min; // not so random...
+    if ($range < 1)
+        return $min; // not so random...
     $log = ceil(log($range, 2));
     $bytes = (int) ($log / 8) + 1; // length in bytes
     $bits = (int) $log + 1; // length in bits
@@ -599,17 +591,65 @@ function crypto_rand_secure($min, $max)
     return $min + $rnd;
 }
 
-function getToken($length)
-{
+function getToken($length) {
     $token = "";
     $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
     $codeAlphabet.= "0123456789";
     $max = strlen($codeAlphabet) - 1;
-    for ($i=0; $i < $length; $i++) {
+    for ($i = 0; $i < $length; $i++) {
         $token .= $codeAlphabet[crypto_rand_secure(0, $max)];
     }
     return $token;
+}
+
+// Get the Unique Code
+function getUniqueCode($school_id, $feild_name) {
+    Yii::import("application.modules.school.models.format", true);
+
+
+    switch (strtolower($feild_name)) {
+        case 'receipt_no':
+            $ind = 1;
+            break;
+    }
+
+    $y = date('y');
+
+    $format_model = Format::model()->find(array("condition" => "school_id = '$school_id' AND year = '$y' "));
+    
+    // new entry in the table
+    if (empty($format_model)) {
+        $school = Schools::model()->find(array("condition" => "id = '$school_id'"));
+        $school_arr = explode(' ', strtoupper($school->name));
+        $slug = '';
+        foreach ($school_arr as $school) {
+            $slug = $slug . substr($school, 0, 1);
+        }
+
+        $year = date('y');
+        for ($i = 0; $i <= 10; $i++) {
+            $format = new Format;
+            $format->school_id = $school_id;
+            $format->school_slug = $slug;
+            $format->year = $year;
+            $format->receipt_no = 0;
+            $format->save();
+            $year++;
+        }
+      $format_model = Format::model()->find(array("condition" => "school_id = '$school_id' AND year = '$y' "));
+    }
+
+
+
+    $format_model->receipt_no = $format_model->receipt_no + 1;
+    $format_model->save();
+    $sequence = $format_model->receipt_no;
+    $school_slug = $format_model->school_slug;
+    $id = $format_model->id;
+
+    $Code = $school_slug . $id . $ind . $y . str_pad($sequence, 6, "0", STR_PAD_LEFT);
+    return $Code;
 }
 
 ?>
