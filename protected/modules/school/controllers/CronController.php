@@ -47,35 +47,37 @@ class CronController extends Controller {
                     $transaction->student = $student->id;
                     $transaction->class = $student->class;
                     $transaction->section = $student->section;
-                    $transaction->receipt = 1;
+                    $transaction->receipt = getUniqueCode($student->school, 'receipt_no');
                     $transaction->transaction_type = 'CREDIT';
                     $transaction->amount = $total_amount;
                     $transaction->amount_detail = json_encode($payment_info_array);
                     $transaction->month = date('m');
                     $transaction->year = date('Y');
                     $transaction->payment_status = 'pending';
+                    $transaction->id = create_guid();
+                    $transaction->date_entered = date("Y-m-d H:i:s");
+                    $transaction->created_by = $student->school;
+                    $transaction->modified_by = $student->school;
+                    $transaction->deleted = 0;
+                    $transaction->status = 1;
+                    $transaction->date_modified = date("Y-m-d H:i:s");
                     $transaction->save();
                 }
             }
         }
-
     }
-    
-    
-    public function actionTest()
-    {
+
+    public function actionTest() {
         $school_id = 'a0baf6ae-ad68-431e-3bc7-56e588fad358';
-        $school = Schools::model()->find(array("condition"=>"id = '$school_id'"));
-        $school_arr = explode(' ',strtoupper($school->name)); 
+        $school = Schools::model()->find(array("condition" => "id = '$school_id'"));
+        $school_arr = explode(' ', strtoupper($school->name));
         $slug = '';
-        foreach($school_arr as $school)
-        {
-            $slug = $slug.substr($school, 0, 1);
-        }    
-        
+        foreach ($school_arr as $school) {
+            $slug = $slug . substr($school, 0, 1);
+        }
+
         $year = date('y');
-        for($i=0; $i<=10;$i++)
-        {
+        for ($i = 0; $i <= 10; $i++) {
             $format = new Format;
             $format->school_id = $school_id;
             $format->school_slug = $slug;
@@ -83,12 +85,7 @@ class CronController extends Controller {
             $format->receipt_no = 0;
             $format->save();
             $year++;
-           
-        }        
-        
-    }        
-    
-    
-    
+        }
+    }
 
 }
