@@ -24,7 +24,7 @@
  * @property string $date_entered
  * @property string $date_modified
  */
-class Transactions extends BaseModel
+class Transactions extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
