@@ -4,7 +4,7 @@ return array (
   'connectionId' => 'db',
   'tablePrefix' => '',
   'modelPath' => 'application.modules.school.models',
-  'baseClass' => 'BaseModel',
+  'baseClass' => 'SimpleModel',
   'buildRelations' => '1',
   'commentsAsLabels' => '0',
 );
