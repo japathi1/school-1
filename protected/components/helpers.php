@@ -654,14 +654,11 @@ function getUniqueCode($school_id, $feild_name) {
 
  function sendSms($number,$message) {
         $message = urlencode($message);
-        $url = "http://sms.hspsms.com:/sendSMS?username=hspdemo&message=$message&sendername=HSPSMS&smstype=TRANS&numbers=$number&apikey=5b87cc6a-34f9-4d34-8646-f829f56ec608";
+        $url = "http://sms.hspsms.com:/sendSMS?username=hspdemo&message=$message&sendername=HSPSMS&smstype=TRANS&numbers=$number&apikey=42e53e0a-686e-44c2-bb85-5d6e851fb845";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_exec($ch);
     }
-
-
-
 
 
 ?>

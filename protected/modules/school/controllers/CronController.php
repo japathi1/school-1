@@ -62,6 +62,9 @@ class CronController extends Controller {
                     $transaction->status = 1;
                     $transaction->date_modified = date("Y-m-d H:i:s");
                     $transaction->save();
+                    $message = base_url()."school/receipt/view/".$transaction->id;
+                    sendSmS($student->emg_contact,$message);
+                    
                 }
             }
         }
@@ -86,6 +89,11 @@ class CronController extends Controller {
             $format->save();
             $year++;
         }
+    }
+
+    public function actionAbc() {
+        $message = "just do it";
+        sendSms(9903104919,$message);
     }
 
 }
