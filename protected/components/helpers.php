@@ -652,4 +652,16 @@ function getUniqueCode($school_id, $feild_name) {
     return $Code;
 }
 
+ function sendSms($number,$message) {
+        $message = urlencode($message);
+        $url = "http://sms.hspsms.com:/sendSMS?username=hspdemo&message=$message&sendername=HSPSMS&smstype=TRANS&numbers=$number&apikey=5b87cc6a-34f9-4d34-8646-f829f56ec608";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_exec($ch);
+    }
+
+
+
+
+
 ?>
