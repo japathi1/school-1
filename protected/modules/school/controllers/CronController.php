@@ -41,7 +41,6 @@ class CronController extends Controller {
                         $payment_info_array[$extra_fee->label] = $extra_fee->amount;
                     }
                     $total_amount = $total_fee_amount + $total_extra_fee_amount;
-
                     $transaction = new Transactions;
                     $transaction->school = $student->school;
                     $transaction->student = $student->id;
@@ -62,11 +61,26 @@ class CronController extends Controller {
                     $transaction->status = 1;
                     $transaction->date_modified = date("Y-m-d H:i:s");
                     $transaction->save();
-                    $message = base_url()."school/receipt/view/".$transaction->id;
-                    sendSmS($student->emg_contact,$message);
+
+                    $name = $student->firstname.' '.$student->middlename.' '.$student->lastname;
+                    $roll = $student->roll_number;
+                    $school_detail = Schools::model()->findByPk($student->school);
+                    $parent = Parents::model()->find(array("condition" => "child = '$student->id' AND parent_type = 'father'"))
+                    $url = domainUrl()."/school/receipt/view?id=".$transaction->id;
+                    if($parent === null){
+                        $message = "Dear Parent,
+                                Fees For Your Child $name For $transaction->month/$transaction->year Month is Pending, Make Payment Now to avoid Late Fee & Other  Frustrations like standing in Queue ,Traveling. Click Link $url";
+                    } else {
+                        $message = "Dear $parent->firstname $parent->lastname,
+                                Fees For Your Child $name For $transaction->month/$transaction->year Month is Pending, Make Payment Now to avoid Late Fee & Other  Frustrations like standing in Queue ,Traveling. Click Link $url";
+                    }
                     
+                    // $message = "Dear Parent, Fee for current month is available for your child $name Roll No. $roll Please Click below link for making payment online $url Regards $school_detail->name";
+                    sendSmS($student->emg_contact,$message);
                 }
             }
+
+            echo "Cron Completed";
         }
     }
 

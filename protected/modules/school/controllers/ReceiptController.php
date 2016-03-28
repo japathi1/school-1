@@ -23,6 +23,7 @@ class ReceiptController extends Controller {
      * @return array access control rules
      */
     public function actionView($id) {
+        $this->layout = '//layouts/invoice_column';
         $tran_model = Transactions::model()->find(array("condition" => "id = '$id'"));
         $school_model = Schools::model()->find(array("condition" => "id = '$tran_model->school'"));
         $student_model = Students::model()->find(array("condition" => "id = '$tran_model->student'"));

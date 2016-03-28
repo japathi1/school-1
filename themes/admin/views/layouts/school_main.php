@@ -7,7 +7,6 @@
      <?php
       $baseUrl = Yii::app()->theme->baseUrl; 
       $cs = Yii::app()->getClientScript();
-      Yii::app()->clientScript->registerCoreScript('jquery');
     ?>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -42,6 +41,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="<?php echo $baseUrl;?>/plugins/jQuery/jQuery-2.1.4.min.js"></script>
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -145,7 +145,7 @@
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="<?php echo $baseUrl;?>/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -179,6 +179,7 @@
     <script src="<?php echo $baseUrl;?>/plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="<?php echo $baseUrl;?>/dist/js/app.min.js"></script>
+    
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="<?php echo $baseUrl;?>/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->

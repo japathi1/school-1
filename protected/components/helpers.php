@@ -605,7 +605,7 @@ function getToken($length) {
 
 // Get the Unique Code
 function getUniqueCode($school_id, $feild_name) {
-    Yii::import("application.modules.school.models.format", true);
+    Yii::import("application.modules.school.models.Format", true);
 
 
     switch (strtolower($feild_name)) {
@@ -654,11 +654,15 @@ function getUniqueCode($school_id, $feild_name) {
 
  function sendSms($number,$message) {
         $message = urlencode($message);
-        $url = "http://sms.hspsms.com:/sendSMS?username=hspdemo&message=$message&sendername=HSPSMS&smstype=TRANS&numbers=$number&apikey=42e53e0a-686e-44c2-bb85-5d6e851fb845";
+        $url = "http://sms.hspsms.com/sendSMS?username=suri_1089&message=$message&sendername=SCHOOL&smstype=TRANS&numbers=$number&apikey=bf6030e3-8950-4d9d-b7cd-119833ea886b";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_exec($ch);
-    }
+}
+
+function _isCurl(){
+    return function_exists('curl_version');
+}
 
 
 ?>
