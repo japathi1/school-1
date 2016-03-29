@@ -370,3 +370,12 @@ Stack trace:
 #22 {main}
 REQUEST_URI=/school/school/receipt/view?id=1c265685-3d62-9de8-fd93-56ea1179a8d1
 ---
+2016/03/29 04:44:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "school/transactions".' in C:\xampp\htdocs\school\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\school\framework\web\CWebApplication.php(141): CWebApplication->runController('school/transact...')
+#1 C:\xampp\htdocs\school\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\school\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/school/school/transactions
+HTTP_REFERER=http://localhost/school/index.php/school/dashboard
+---
