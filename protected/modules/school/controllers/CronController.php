@@ -65,7 +65,7 @@ class CronController extends Controller {
                     $name = $student->firstname.' '.$student->middlename.' '.$student->lastname;
                     $roll = $student->roll_number;
                     $school_detail = Schools::model()->findByPk($student->school);
-                    $parent = Parents::model()->find(array("condition" => "child = '$student->id' AND parent_type = 'father'"))
+                    $parent = Parents::model()->find(array("condition" => "child = '$student->id' AND parent_type = 'father'"));
                     $url = domainUrl()."/school/receipt/view?id=".$transaction->id;
                     if($parent === null){
                         $message = "Dear Parent,
