@@ -59,8 +59,31 @@
                                     'columns' => array(
                                         'fee_label',
                                         array(
-                                            'class' => 'CButtonColumn',
-                                        ),
+                                            'class'=>'CButtonColumn',
+                                            'template'=>'{v} {u} {d}', // <-- TEMPLATE WITH THE TWO STATES
+                                            'htmlOptions'=>array(
+                                                    'width'=>80,
+                                            ),
+                                            'buttons' => array(
+                                                'v'=>array(
+                                                        'label'=>'<i class="fa fa-search"></i>',
+                                                        'url'=>'Yii::app()->createUrl("school/feelabel/view", array("id"=>$data->id))',
+                                                        // 'imageUrl'=>'images/icons/inactive.png',
+                                                        // 'visible'=> '$data->active == 0', // <-- SHOW IF ROW INACTIVE
+                                                ),
+                                                'u'=>array(
+                                                        'label'=>'<i class="fa fa-edit"></i>',
+                                                        'url'=>'Yii::app()->createUrl("school/feelabel/update", array("id"=>$data->id))',
+                                                        // 'imageUrl'=>'images/icons/active.png',
+                                                        // 'visible'=> '$data->active == 1', // <-- SHOW IF ROW ACTIVE
+                                                ),
+                                                'd'=>array(
+                                                        'label'=>'<i class="fa fa-trash"></i>',
+                                                        'url'=>'Yii::app()->createUrl("school/feelabel/delete", array("id"=>$data->id))',
+                                                        // 'imageUrl'=>'images/icons/printer.png',
+                                                ),
+                                            ),
+                                        )
                                     ),
                                 ));
                                 ?>

@@ -33,3 +33,9 @@ ALTER TABLE `schools` ADD `payment_api_key` VARCHAR(128) NULL AFTER `name`, ADD 
 /* 13-3-2016 */
 
 ALTER TABLE `transactions` ADD `amount_detail` TEXT NOT NULL AFTER `amount`; 
+
+/* 01-04-2016 */
+
+ALTER TABLE `transactions` ADD `transaction_details` TEXT NULL AFTER `transaction_type`;
+
+ALTER TABLE `schools` ADD `sms_count` VARCHAR(16) NOT NULL AFTER `school_logo`, ADD `sms_api_key` VARCHAR(128) NOT NULL AFTER `sms_count`, ADD `sms_dates` TEXT NOT NULL AFTER `sms_api_key`;

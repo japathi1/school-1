@@ -69,6 +69,14 @@ class SchoolsController extends Controller {
 
         if (isset($_POST['Schools'])) {
             $model->attributes = $_POST['Schools'];
+            // pre($_FILES,true);
+            if(isset($_FILES['Schools'])){
+                $name = $_FILES['Schools']['name']['school_logo'];
+                $tmp_name = $_FILES['Schools']['tmp_name']['school_logo'];
+                $type = $_FILES['Schools']['type']['school_logo'];
+                $logo = uploadImage($name, $type, $tmp_name, 'school-logo');
+            }
+            $model->school_logo = $logo;
             if ($model->save()) {
                 $school_id = $model->id;
                 $school = Schools::model()->find(array("condition" => "id = '$school_id'"));

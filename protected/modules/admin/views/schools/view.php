@@ -39,6 +39,9 @@
                                     ),
 								'pin',
 								'contact',
+                                'sms_count',
+                                'sms_api_key',
+                                'sms_dates'
                             ),
                         ));
                         ?>

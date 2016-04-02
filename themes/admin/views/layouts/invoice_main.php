@@ -14,14 +14,5 @@
   </head>
   <body>
   		<?php echo $content; ?> 
-      <script type="text/javascript">
-        (function(d){
-          var js, id = 'cirkle-iapi', ref = d.getElementsByTagName('script')[0];
-          if (d.getElementById(id)) {return;}
-          js = d.createElement('script'); js.id = id;;
-          js.src = "//cdn.cirklepay.com/api/cirklepay.iapi-1.0.1.js";
-          ref.parentNode.insertBefore(js, ref);
-        }(document));
-      </script>
   </body>
 </html>
