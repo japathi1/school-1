@@ -49,3 +49,5 @@ Temporary Items
 protected/runtime/sql.log
 *.log
 *.log
+*.log
+*.log
