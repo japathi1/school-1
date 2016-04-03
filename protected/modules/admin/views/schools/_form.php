@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/themes/admin/dist/css/mdp/mdp.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/themes/admin/dist/css/mdp/prettify.css">
 <?php
 $form = $this->beginWidget('CActiveForm', array(
     'id' => 'schools-form',
@@ -5,7 +7,8 @@ $form = $this->beginWidget('CActiveForm', array(
     // controller action is handling ajax validation correctly.
     // There is a call to performAjaxValidation() commented in generated controller code.
     // See class documentation of CActiveForm for details on this.
-    'enableAjaxValidation' => false
+    'enableAjaxValidation' => false,
+    'htmlOptions'=>array('enctype'=>'multipart/form-data'),
         ));
 ?>
 <div class="box-body">
@@ -33,6 +36,27 @@ $form = $this->beginWidget('CActiveForm', array(
 <?php echo $form->error($model, 'payment_secret_key'); ?>
         </div>
     </div>
+
+    <div class="form-group">
+        <div class="col-xs-6">
+            <?php echo $form->labelEx($model, 'sms_api_key'); ?>
+            <?php echo $form->textField($model, 'sms_api_key', array('size' => 60, 'maxlength' => 512, 'class' => 'form-control')); ?>
+            <?php echo $form->error($model, 'sms_api_key'); ?>
+        </div>
+        <div class="col-xs-6">
+            <?php echo $form->labelEx($model, 'sms_count'); ?>
+            <?php echo $form->textField($model, 'sms_count', array('size' => 60, 'maxlength' => 512, 'class' => 'form-control')); ?>
+            <?php echo $form->error($model, 'sms_count'); ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <?php echo $form->labelEx($model, 'sms_dates'); ?>
+            <?php echo $form->textField($model, 'sms_dates', array('size' => 60, 'maxlength' => 512, 'class' => 'form-control')); ?>
+            <?php echo $form->error($model, 'sms_dates'); ?>
+        </div>
+    </div>
+
     <div class="form-group">
         <div class="col-xs-6">
             <?php echo $form->labelEx($model, 'address_line_1'); ?>
@@ -77,3 +101,24 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
 
 <?php $this->endWidget(); ?>
+<script type="text/javascript" src="<?php echo base_url(); ?>/themes/admin/dist/js/jquery-ui-1.11.1.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>/themes/admin/dist/js/jquery-ui.multidatespicker.js"></script>
+<script>
+    var selectedDates = "<?php echo $model->sms_dates; ?>";
+    if(selectedDates.length > 0){
+        var d = selectedDates.split(",");
+        var dates = [];
+        $.each(d, function(k,v){
+            dates.push($.trim(v));
+        });
+        $('#Schools_sms_dates').multiDatesPicker({
+            addDates: dates,
+            numberOfMonths: [1,4],
+        });    
+    } else {
+        $('#Schools_sms_dates').multiDatesPicker({
+            numberOfMonths: [1,4],
+        });
+    }
+    
+</script>

@@ -648,7 +648,7 @@ function getUniqueCode($school_id, $feild_name) {
     $school_slug = $format_model->school_slug;
     $id = $format_model->id;
 
-    $Code = $school_slug . $id . $ind . $y . str_pad($sequence, 6, "0", STR_PAD_LEFT);
+    $Code = $school_slug . $id . $ind . $y . str_pad($sequence, 3, "0", STR_PAD_LEFT);
     return $Code;
 }
 

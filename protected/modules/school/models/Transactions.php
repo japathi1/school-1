@@ -12,6 +12,7 @@
  * @property string $receipt
  * @property string $transaction_id
  * @property string $transaction_type
+ * @property string $transaction_details
  * @property string $amount
  * @property string $amount_detail
  * @property integer $month
@@ -51,7 +52,7 @@ class Transactions extends CActiveRecord
 			array('payment_status', 'length', 'max'=>9),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, school, student, class, section, receipt, transaction_id, transaction_type, amount, amount_detail, month, year, payment_status, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
+			array('id, school, student, class,transaction_details, section, receipt, transaction_id, transaction_type, amount, amount_detail, month, year, payment_status, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -80,6 +81,7 @@ class Transactions extends CActiveRecord
 			'receipt' => 'Receipt',
 			'transaction_id' => 'Transaction',
 			'transaction_type' => 'Transaction Type',
+			'transaction_details' => 'Transaction Details',
 			'amount' => 'Amount',
 			'amount_detail' => 'Amount Detail',
 			'month' => 'Month',
@@ -113,7 +115,7 @@ class Transactions extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('school',$this->school,true);
+		$criteria->compare('school',Yii::app()->user->getState('school_id'));
 		$criteria->compare('student',$this->student,true);
 		$criteria->compare('class',$this->class,true);
 		$criteria->compare('section',$this->section,true);
@@ -131,6 +133,7 @@ class Transactions extends CActiveRecord
 		$criteria->compare('modified_by',$this->modified_by,true);
 		$criteria->compare('date_entered',$this->date_entered,true);
 		$criteria->compare('date_modified',$this->date_modified,true);
+		$criteria->order = 'date_modified DESC';
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

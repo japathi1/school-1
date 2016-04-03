@@ -4741,3 +4741,9 @@ label.error, span.required{
 .input-group.dateholder {
     width: 100%;
 }
+
+a.btn-warning{
+    float: right;
+    padding: 5px 10px;
+    margin-right: 15px;
+}

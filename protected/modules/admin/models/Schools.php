@@ -37,14 +37,14 @@ class Schools extends AdminBaseModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, name, address_line_1, city, state, pin, contact, date_entered, date_modified, created_by, modified_by', 'required'),
+			array('id, name, sms_count,school_logo, sms_api_key, sms_dates, address_line_1, city, state, pin, contact, date_entered, date_modified, created_by, modified_by', 'required'),
 			array('status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, state, created_by, modified_by', 'length', 'max'=>36),
 			array('name', 'length', 'max'=>512),
 			array('school_logo, address_line_1, address_line_2', 'length', 'max'=>255),
-			array('city, payment_api_key, payment_secret_key', 'length', 'max'=>128),
+			array('city, sms_api_key, payment_api_key, payment_secret_key', 'length', 'max'=>128),
 			array('pin', 'length', 'max'=>6),
-			array('contact', 'length', 'max'=>16),
+			array('sms_count, contact', 'length', 'max'=>16),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, address_line_1, address_line_2, city, state, pin, contact, status, deleted, date_entered, date_modified, created_by, modified_by', 'safe', 'on'=>'search'),
@@ -59,7 +59,7 @@ class Schools extends AdminBaseModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'state_detail'=>array(self::BELONGS_TO, 'States', 'state'),
+            'state_detail'=>array(self::BELONGS_TO, 'States', 'state'),
 		);
 	}
 
@@ -71,8 +71,11 @@ class Schools extends AdminBaseModel
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
-			'payment_api_key' => 'Payment API Key',
+			'payment_api_key' => 'Payment Merchant Key',
 			'payment_secret_key' => 'Payment Secret Key',
+			'sms_count' => 'SMS Count',
+			'sms_api_key' => 'SMS Api Key',
+			'sms_dates' => 'SMS Dates',
 			'school_logo' => 'School Logo',
 			'address_line_1' => 'Address Line 1',
 			'address_line_2' => 'Address Line 2',

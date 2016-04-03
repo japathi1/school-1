@@ -110,43 +110,45 @@
               <td class="ibcl_tax_value">$4.80</td>
             </tr>
             -->
+            <?php if($tran_model->payment_status != "complete"): ?>
             <tr class="amount-total">
+              <?php
+                $access_key = "97d9c40647e78f2d66042e5a2222691a";
+                $secret_key = "1d8d438cc68d4a7b72985b298402caa12d9f21ea";
+                $trackid = $tran_model->receipt;
+                $amount = $total; 
+                $data = "merchantKey=" . $access_key
+                            . "&trackId=". $trackid;
+                $signature = hash_hmac('sha1', $data, $secret_key);
+              ?>
               <td class="ibcl_amount_total" colspan="2">
-                <button class="ibcl_amount_total">Pay Now</button>
+                <form action=" https://sandboxpay.cirklepay.com/Pay/Proceed " method="POST" /> 
+
+                  <input type="hidden" name="merchantKey" value="97d9c40647e78f2d66042e5a2222691a" /> 
+
+                  <input type="hidden" name="signature" value="<?php echo $signature; ?>" /> 
+
+                  <input type="hidden" name="trackId" value="<?php echo $trackid; ?>" /> 
+
+                  <input type="hidden" name="returnUrl" value="<?php echo domainUrl().'/school/receipt/success'; ?>" /> 
+
+                  <input type="hidden" name="notifyUrl" value="<?php echo domainUrl().'/school/receipt/notify'; ?>" /> 
+
+                  <input type="hidden" name="amount" value="<?php echo $total; ?>" class="form-control"  /> 
+
+                  <input type="submit" class="ibcl_amount_total" name="payWithCirkle" value="Pay" id="payWithCirkle" />
+
+                </form>
               </td>
             </tr>
-            
-            <!--<tr>
-              <td class="ibcl_amount_total" colspan="2"><button class="ibcl_pay_invoice">Pay Now</button></td>
-            </tr>-->
-          </tbody></table>
-          <?php
-          //Need to change with your Access Key
-            $access_key = "4552853632807c30f335615c0fa1953c";
-
-            //Need to change with your Secret Key
-            $secret_key = "e5f6519354cea4d0c18967e70e8b7d1e7e77caa1";
-
-            //Should be unique for every transaction
-            $trackid = $tran_model->receipt;
-
-            //Need to change with your Order Amount
-            $amount = $total; 
-
-            //Need to change with your Return URL
-            $returnURL = domainUrl()."/school/response";
-
-            //Need to change with your Notify URL
-            $notifyUrl = domainUrl()."/school/notify";
-
-            $data = "merchantAccessKey=" . $access_key
-                        . "&transactionId="  . $trackid 
-                        . "&amount="         . $amount;
-
-            $signature = hash_hmac('sha1', $data, $secret_key);
-            echo $signature;
-
-          ?>
+            <?php else : ?>
+              <tr class="amount-total">
+                <td class="ibcl_amount_total" colspan="2">Already Paid For this Reciept</td>
+              </tr>
+            <?php endif; ?>
+          </tbody>
+          </table>
+          
         </section>
         
         <div class="clearfix"></div>
