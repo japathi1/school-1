@@ -101,7 +101,7 @@ $form = $this->beginWidget('CActiveForm', array(
 $action = Yii::app()->createUrl("school/students/feeoptions/", array("id" => $model->id));
 ?>
 <?php
-if (!empty($model->id)) {
+if (!empty($model->id) && !empty($fee_structure)) {
     ?>
     <form action="<?php echo $action ?>"  method="POST" name="fee_structure_form" id="fee_structure_form"> 
         <div class="box-header with-border">
