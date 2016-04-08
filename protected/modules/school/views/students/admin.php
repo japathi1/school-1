@@ -82,18 +82,22 @@
                                                 'v'=>array(
                                                         'label'=>'<i class="fa fa-search"></i>',
                                                         'url'=>'Yii::app()->createUrl("school/students/view", array("id"=>$data->id))',
+                                                        'options'=>array('class'=>'view','title'=>'View'),
                                                         // 'imageUrl'=>'images/icons/inactive.png',
                                                         // 'visible'=> '$data->active == 0', // <-- SHOW IF ROW INACTIVE
                                                 ),
                                                 'u'=>array(
                                                         'label'=>'<i class="fa fa-edit"></i>',
                                                         'url'=>'Yii::app()->createUrl("school/students/update", array("id"=>$data->id))',
+                                                        'options'=>array('class'=>'edit','title'=>'Update'),
                                                         // 'imageUrl'=>'images/icons/active.png',
                                                         // 'visible'=> '$data->active == 1', // <-- SHOW IF ROW ACTIVE
                                                 ),
                                                 'd'=>array(
                                                         'label'=>'<i class="fa fa-trash"></i>',
                                                         'url'=>'Yii::app()->createUrl("school/students/delete", array("id"=>$data->id))',
+                                                        'options'=>array('class'=>'delete','title'=>'Delete'),
+                                                        'click'=>'function(){return confirm("are you sure ?");}'
                                                         // 'imageUrl'=>'images/icons/printer.png',
                                                 ),
                                             ),
