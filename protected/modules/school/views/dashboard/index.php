@@ -115,9 +115,12 @@ if (!empty($data_array)) {
                         <select id='month'>
                             <option value=''>Select Month</option>    
                             <?php
+                            $months = getParam('months');
                             for ($i = 1; $i <= 12; $i++) {
                                 ?>     
-                                <option <?php echo ($i == date('m')) ? 'selected' : ''; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                <option <?php echo ($i == date('m')) ? 'selected' : ''; ?> value="<?php echo $i; ?>">
+                                    <?php echo $months[$i]; ?>
+                                </option>
                                 <?php
                             }
                             ?>

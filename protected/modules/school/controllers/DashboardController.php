@@ -12,6 +12,7 @@ class DashboardController extends Controller {
     }
 
     public function actionIndex() {
+        // die("here");
         $school = Yii::app()->user->getState('school_id');
         $all_students = BaseModel::getAll('Transactions', array("condition" => "school = '$school'"));
         $data = [];
@@ -52,6 +53,8 @@ class DashboardController extends Controller {
             $paid_students = BaseModel::getAll('Transactions', array("condition" => "school = '$school' AND class = '$class->id' AND payment_status = 'complete' AND month ='$month' AND year = '$year' "));
             $not_paid_students = BaseModel::getAll('Transactions', array("condition" => "school = '$school' AND class = '$class->id' AND payment_status = 'pending' AND month ='$month' AND year = '$year'"));
             //if (!empty($paid_students) || !empty($not_paid_students)) {
+            //pre($paid_students);
+            //pre($not_paid_students,true);
             $paid_array = array();
             $paid_array[] = 'Paid';
             $paid_array[] = count($paid_students);
@@ -63,7 +66,9 @@ class DashboardController extends Controller {
             $data_array[$class->id]['data'] = array();
             $class_detail = Classes::model()->findByPk($class->id);
             $data_array[$class->id]['class_name'] = $class_detail->class;
-            if (!empty(count($paid_students)) && !empty(count($not_paid_students))) {
+            $count_paid_students = count($paid_students);
+            $count_not_paid_students = count($not_paid_students);
+            if (!empty($count_paid_students) || !empty($count_not_paid_students)) {
                 array_push($data_array[$class->id]['data'], $paid_array);
                 array_push($data_array[$class->id]['data'], $not_paid_array);
             }
@@ -100,7 +105,9 @@ class DashboardController extends Controller {
             $data_array[$class->id]['data'] = array();
             $class_detail = Classes::model()->findByPk($class->id);
             $data_array[$class->id]['class_name'] = $class_detail->class;
-             if (!empty(count($paid_students)) && !empty(count($not_paid_students))) {
+            $count_paid_students = count($paid_students);
+            $count_not_paid_students = count($not_paid_students);
+            if (!empty($count_paid_students) || !empty($count_not_paid_students)) {
                 array_push($data_array[$class->id]['data'], $paid_array);
                 array_push($data_array[$class->id]['data'], $not_paid_array);
             }
@@ -108,6 +115,81 @@ class DashboardController extends Controller {
 
         echo json_encode($data_array);
         // end of graph work
+    }
+
+    public function actionExcel() {
+
+       require('./assets/excelreader/php-excel-reader/excel_reader2.php');
+       require('./assets/excelreader/SpreadsheetReader.php');
+      
+       date_default_timezone_set('UTC');
+
+	$StartMem = memory_get_usage();
+	echo '---------------------------------'.PHP_EOL;
+	echo 'Starting memory: '.$StartMem.PHP_EOL;
+	echo '---------------------------------'.PHP_EOL;
+
+	try
+	{
+		$Spreadsheet = new SpreadsheetReader('./assets/students.xls');
+		$BaseMem = memory_get_usage();
+
+		$Sheets = $Spreadsheet -> Sheets();
+
+		echo '---------------------------------'.PHP_EOL;
+		echo 'Spreadsheets:'.PHP_EOL;
+		print_r($Sheets);
+		echo '---------------------------------'.PHP_EOL;
+		echo '---------------------------------'.PHP_EOL;
+
+		foreach ($Sheets as $Index => $Name)
+		{
+			echo '---------------------------------'.PHP_EOL;
+			echo '*** Sheet '.$Name.' ***'.PHP_EOL;
+			echo '---------------------------------'.PHP_EOL;
+
+			$Time = microtime(true);
+
+			$Spreadsheet -> ChangeSheet($Index);
+
+			foreach ($Spreadsheet as $Key => $Row)
+			{
+				echo $Key.': ';
+				if ($Row)
+				{
+					print_r($Row);
+				}
+				else
+				{
+					var_dump($Row);
+				}
+				$CurrentMem = memory_get_usage();
+		
+				echo 'Memory: '.($CurrentMem - $BaseMem).' current, '.$CurrentMem.' base'.PHP_EOL;
+				echo '---------------------------------'.PHP_EOL;
+		
+				if ($Key && ($Key % 500 == 0))
+				{
+					echo '---------------------------------'.PHP_EOL;
+					echo 'Time: '.(microtime(true) - $Time);
+					echo '---------------------------------'.PHP_EOL;
+				}
+			}
+		
+			echo PHP_EOL.'---------------------------------'.PHP_EOL;
+			echo 'Time: '.(microtime(true) - $Time);
+			echo PHP_EOL;
+
+			echo '---------------------------------'.PHP_EOL;
+			echo '*** End of sheet '.$Name.' ***'.PHP_EOL;
+			echo '---------------------------------'.PHP_EOL;
+		}
+		
+	}
+	catch (Exception $E)
+	{
+		echo $E -> getMessage();
+	}
     }
 
 }
