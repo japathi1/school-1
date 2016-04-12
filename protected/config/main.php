@@ -5,7 +5,7 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 require_once( dirname(__FILE__) . '/../components/helpers.php');
-require_once( dirname(__FILE__) . '/../components/excel_reader2.php');
+// require_once( dirname(__FILE__) . '/../components/excel_reader2.php');
 require_once( dirname(__FILE__) . '/../components/GoogleUrlApi.php');
 require(dirname(__FILE__) . '/global.php');
 return array(
