@@ -83,12 +83,15 @@
                                                 'v'=>array(
                                                         'label'=>'<i class="fa fa-search"></i>',
                                                         'url'=>'Yii::app()->createUrl("school/transactions/view", array("id"=>$data->id))',
+                                                        'options'=>array('class'=>'view','title'=>'View'),
                                                         // 'imageUrl'=>'images/icons/inactive.png',
                                                         // 'visible'=> '$data->active == 0', // <-- SHOW IF ROW INACTIVE
                                                 ),
                                                 'd'=>array(
                                                         'label'=>'<i class="fa fa-trash"></i>',
                                                         'url'=>'Yii::app()->createUrl("school/transactions/delete", array("id"=>$data->id))',
+                                                        'options'=>array('class'=>'delete','title'=>'Delete'),
+                                                        'click'=>'function(){return confirm("are you sure ?");}'
                                                         // 'imageUrl'=>'images/icons/printer.png',
                                                 ),
                                             ),
