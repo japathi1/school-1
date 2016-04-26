@@ -116,4 +116,30 @@ class DashboardController extends Controller {
         echo json_encode($data_array);
         // end of graph work
     }
+
+    public function actionUnpaidNotification() {
+        
+        $school = Yii::app()->user->getState('school_id');
+        $not_paid_trans = BaseModel::getAll('Transactions', array("condition" => "school = '$school' AND  payment_status = 'pending'"));
+        foreach ($not_paid_trans as $tran) {
+            $student = Students::model()->find(array("condition" => "id = '$tran->student' "));
+            $name = $student->firstname . ' ' . $student->middlename . ' ' . $student->lastname;
+            $roll = $student->roll_number;
+            $school_detail = Schools::model()->findByPk($student->school);
+            $parent = Parents::model()->find(array("condition" => "child = '$tran->student' AND parent_type = 'father'"));
+            $url = domainUrl() . "/school/receipt/view?id=" . $tran->id;
+            if ($parent === null) {
+                $message = "Dear Parent,
+                                Fees For Your Child $name For $tran->month/$tran->year Month is Pending, Make Payment Now to avoid Late Fee & Other  Frustrations like standing in Queue ,Traveling. Click Link $url";
+            } else {
+                $message = "Dear $parent->firstname $parent->lastname,
+                                Fees For Your Child $name For $tran->month/$tran->year Month is Pending, Make Payment Now to avoid Late Fee & Other  Frustrations like standing in Queue ,Traveling. Click Link $url";
+            }
+
+            sendSmS($student->emg_contact, $message);
+        }
+
+        
+    }
+
 }

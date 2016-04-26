@@ -111,6 +111,13 @@ if (!empty($data_array)) {
                     </div>
                 </div>
                 <div class="box-body">
+                    <div class="col-xs-4">
+                        <a href="<?php echo base_url() . '/school/dashboard/UnpaidNotification'; ?>">
+                            <button class="btn btn-block btn-primary">Notify Unpaid Students</button>
+                        </a>
+                    </div>
+                </div>  
+                <div class="box-body">
                     <div class="col-xs-12">
                         <select id='month'>
                             <option value=''>Select Month</option>    
